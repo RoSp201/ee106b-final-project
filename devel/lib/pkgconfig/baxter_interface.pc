@@ -1,0 +1,8 @@
+prefix=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel
+
+Name: baxter_interface
+Description: Description of baxter_interface
+Version: 1.2.0
+Cflags: -I/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/include
+Libs: -L/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/lib 
+Requires: rospy actionlib sensor_msgs std_msgs control_msgs trajectory_msgs dynamic_reconfigure baxter_core_msgs

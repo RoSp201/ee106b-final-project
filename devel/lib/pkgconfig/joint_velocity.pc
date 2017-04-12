@@ -1,0 +1,8 @@
+prefix=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel
+
+Name: joint_velocity
+Description: Description of joint_velocity
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/lib 
+Requires: 
