@@ -21,46 +21,85 @@ def command_joint_velocities():
     rospy.init_node('baxter_joint_kinematics_node', anonymous=True)
 
     #Initialize the left limb for joint velocity control
-    kin = kdl.baxter_kinematics('left')
+    kin_left = kdl.baxter_kinematics('left')
+    kin_right = kdl.baxter_kinematics('right')
     #limb = baxter_interface.Limb('left')
     # angles = limb.joint_angles()
     # velocities = limb.joint_velocities()
-    limb = kin._limb_interface
-    angles = limb.joint_angles()
-    velocities = limb.joint_velocities()
+    left = kin_left._limb_interface
+    right = kin_right._limb_interface
+
+    angles = left.joint_angles()
+    velocities = left.joint_velocities()
+    right_velocities = right.joint_velocities()
 
     #jacobian = np.array(kin.jacobian(angles))
-    pinv_jacobian = np.array(kin.jacobian_pseudo_inverse(angles))
+    pinv_jacobian = np.array(kin_left.jacobian_pseudo_inverse(angles))
 
     num_cmd = 80
     listener = tf.TransformListener()
     from_frame = 'base'
     to_frame = 'right_gripper'
 
-    found = False
-    position, quaternion = None, None
+    print velocities
+    while not rospy.is_shutdown():
+        found = False
+        position, quaternion = None, None
 
-    # grab transform
-    while not found:
-        rospy.sleep(1.0)
-        try:
-            t = listener.getLatestCommonTime(from_frame, to_frame)
-            position, quaternion = listener.lookupTransform(from_frame, to_frame, t)
-            print "\n\nposition: {}\n orientation: {}\n".format(position, quaternion)
-            found = True
-        except Exception as e:
-            print "Error: {}".format(e)
+        cmd = {}
+        for idx, name in enumerate(left.joint_names()):
+            v = right.joint_velocity(right.joint_names()[idx])
+            #if name[-2:] in ('s0', 'e0', 'w0', 'w2'):
+            #    v = -v
+            cmd['left_'+name[-2:]] = v * 1.0
+        left.set_joint_velocities(cmd)
+        rospy.sleep(0.1)
+
+
+        # # grab transform
+        # while not found:
+        #     rospy.sleep(1.0)
+        #     try:
+        #         t = listener.getLatestCommonTime(from_frame, to_frame)
+        #         position, quaternion = listener.lookupTransform(from_frame, to_frame, t)
+        #         print "\n\nposition: {}\norientation: {}\n".format(position, quaternion)
+        #         found = True
+        #     except Exception as e:
+        #         print "Error: {}".format(e)
+
+        right_velocities = right.joint_velocities()
+
+        rospy.sleep(0.05)
+        cmd_left_vel = left.set_joint_velocities(right_velocities)
 
 
 
-    #print velocities
-    print "\n\n"
 
-    # this value gives you a matrix of the end effector's position and orientation
-    print kin.forward_position_kinematics()
-    print "forward velocity kinematics: {}".format(kin.forward_velocity_kinematics())
-    
+        # pos = np.array(kin_left.forward_position_kinematics()).T
+        # f_pos = np.array([pos[0], pos[1], pos[2],
+        #                  pos[3], pos[4], pos[5], pos[6]]).reshape(7,1)
 
+        # pos = np.array(kin_right.forward__kinematics()).T
+        # print pos
+        # f_pos = np.array([pos[0], pos[1], pos[2],
+        #                  pos[3], pos[4], pos[5], pos[6]]).reshape(7,1)
+
+        #print f_pos
+        #print pinv_jacobian.shape
+
+        # joint positions
+        # print pinv_jacobian.T.dot(f_pos)
+
+        # try joint velocities
+
+
+
+        # this value gives you a matrix of the end effector's position and orientation
+        #print kin_left.forward_position_kinematics()
+        #print "forward velocity kinematics: {}".format(kin_left.forward_velocity_kinematics())
+        
+
+    #TODO: want to track the relative velocities of the right gripper and mimic with left
 
 
     # velocities['left_w1'] = 0.1
