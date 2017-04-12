@@ -47,6 +47,7 @@ def command_joint_velocities():
         position, quaternion = None, None
 
         cmd = {}
+        #note this is just for demonstration, next step will be to use the transforms of each joint
         for idx, name in enumerate(left.joint_names()):
             v = right.joint_velocity(right.joint_names()[idx])
             #if name[-2:] in ('s0', 'e0', 'w0', 'w2'):
@@ -97,10 +98,7 @@ def command_joint_velocities():
         # this value gives you a matrix of the end effector's position and orientation
         #print kin_left.forward_position_kinematics()
         #print "forward velocity kinematics: {}".format(kin_left.forward_velocity_kinematics())
-        
-
-    #TODO: want to track the relative velocities of the right gripper and mimic with left
-
+    
 
     # velocities['left_w1'] = 0.1
     # for _ in range(num_cmd):
