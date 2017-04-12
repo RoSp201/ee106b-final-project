@@ -1,8 +1,0 @@
-prefix=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install
-
-Name: baxter_description
-Description: Description of baxter_description
-Version: 1.2.0
-Cflags: 
-Libs: -L/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install/lib 
-Requires: 

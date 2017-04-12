@@ -1,8 +1,0 @@
-prefix=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install
-
-Name: baxter_core_msgs
-Description: Description of baxter_core_msgs
-Version: 1.2.0
-Cflags: -I/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install/include
-Libs: -L/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install/lib 
-Requires: message_runtime geometry_msgs sensor_msgs std_msgs

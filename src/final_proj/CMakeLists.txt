@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf
+  baxter_pykdl
 )
 
 ## System dependencies are found with CMake's conventions
@@ -108,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES final_proj
-#  CATKIN_DEPENDS baxter_interface baxter_tools roscpp rospy std_msgs tf
+#  CATKIN_DEPENDS baxter_interface baxter_tools roscpp rospy std_msgs tf baxter_pykdl
 #  DEPENDS system_lib
 )
 

@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
 include ar_track_alvar/CMakeFiles/clean_test_results_ar_track_alvar.dir/progress.make
 
 ar_track_alvar/CMakeFiles/clean_test_results_ar_track_alvar:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar && /usr/bin/python /opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/cc/ee106b/sp17/class/ee106b-aah/ros_workspaces/final_proj/build/test_results/ar_track_alvar
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar && /usr/bin/python /opt/ros/indigo/share/catkin/cmake/test/remove_test_results.py /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/test_results/ar_track_alvar
 
 clean_test_results_ar_track_alvar: ar_track_alvar/CMakeFiles/clean_test_results_ar_track_alvar
 clean_test_results_ar_track_alvar: ar_track_alvar/CMakeFiles/clean_test_results_ar_track_alvar.dir/build.make

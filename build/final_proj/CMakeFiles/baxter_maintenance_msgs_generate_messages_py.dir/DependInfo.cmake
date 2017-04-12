@@ -16,8 +16,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/include"
   "/opt/ros/indigo/include"
+  "/var/local/home/baxter/ros_ws/devel/include"
   "/usr/include/opencv"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

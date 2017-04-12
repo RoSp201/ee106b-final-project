@@ -304,65 +304,26 @@ ar_track_alvar_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_pro
 //The directory containing a CMake configuration file for ar_track_alvar_msgs.
 ar_track_alvar_msgs_DIR:PATH=/opt/ros/indigo/share/ar_track_alvar_msgs/cmake
 
-//Value Computed by CMake
-baxter_common_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_common/baxter_common
-
-//Value Computed by CMake
-baxter_common_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_common/baxter_common
-
-//Value Computed by CMake
-baxter_core_msgs_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_common/baxter_core_msgs
-
 //The directory containing a CMake configuration file for baxter_core_msgs.
-baxter_core_msgs_DIR:PATH=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/share/baxter_core_msgs/cmake
-
-//Value Computed by CMake
-baxter_core_msgs_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_common/baxter_core_msgs
-
-//Value Computed by CMake
-baxter_description_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_common/baxter_description
-
-//Value Computed by CMake
-baxter_description_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_common/baxter_description
-
-//Value Computed by CMake
-baxter_interface_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_interface
+baxter_core_msgs_DIR:PATH=/scratch/shared/baxter_ws/devel/share/baxter_core_msgs/cmake
 
 //The directory containing a CMake configuration file for baxter_interface.
-baxter_interface_DIR:PATH=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/share/baxter_interface/cmake
-
-//Value Computed by CMake
-baxter_interface_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_interface
-
-//Value Computed by CMake
-baxter_maintenance_msgs_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_common/baxter_maintenance_msgs
+baxter_interface_DIR:PATH=/scratch/shared/baxter_ws/devel/share/baxter_interface/cmake
 
 //The directory containing a CMake configuration file for baxter_maintenance_msgs.
-baxter_maintenance_msgs_DIR:PATH=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/share/baxter_maintenance_msgs/cmake
-
-//Value Computed by CMake
-baxter_maintenance_msgs_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_common/baxter_maintenance_msgs
+baxter_maintenance_msgs_DIR:PATH=/scratch/shared/baxter_ws/devel/share/baxter_maintenance_msgs/cmake
 
 //Value Computed by CMake
 baxter_pykdl_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl
 
+//The directory containing a CMake configuration file for baxter_pykdl.
+baxter_pykdl_DIR:PATH=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/share/baxter_pykdl/cmake
+
 //Value Computed by CMake
 baxter_pykdl_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl
 
-//Value Computed by CMake
-baxter_sdk_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter/baxter_sdk
-
-//Value Computed by CMake
-baxter_sdk_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter/baxter_sdk
-
-//Value Computed by CMake
-baxter_tools_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_tools
-
 //The directory containing a CMake configuration file for baxter_tools.
-baxter_tools_DIR:PATH=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/share/baxter_tools/cmake
-
-//Value Computed by CMake
-baxter_tools_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_tools
+baxter_tools_DIR:PATH=/scratch/shared/baxter_ws/devel/share/baxter_tools/cmake
 
 //The directory containing a CMake configuration file for bond.
 bond_DIR:PATH=/opt/ros/indigo/share/bond/cmake
@@ -378,6 +339,9 @@ class_loader_DIR:PATH=/opt/ros/indigo/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cmake_modules.
 cmake_modules_DIR:PATH=/opt/ros/indigo/share/cmake_modules/cmake
+
+//The directory containing a CMake configuration file for console_bridge.
+console_bridge_DIR:PATH=/usr/share/console_bridge/cmake
 
 //The directory containing a CMake configuration file for control_msgs.
 control_msgs_DIR:PATH=/opt/ros/indigo/share/control_msgs/cmake
@@ -408,9 +372,6 @@ genmsg_DIR:PATH=/opt/ros/indigo/share/genmsg/cmake
 
 //The directory containing a CMake configuration file for genpy.
 genpy_DIR:PATH=/opt/ros/indigo/share/genpy/cmake
-
-//The directory containing a CMake configuration file for geom_msgs.
-geom_msgs_DIR:PATH=geom_msgs_DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for geometry_msgs.
 geometry_msgs_DIR:PATH=/opt/ros/indigo/share/geometry_msgs/cmake
@@ -470,6 +431,9 @@ message_runtime_DIR:PATH=/opt/ros/indigo/share/message_runtime/cmake
 //The directory containing a CMake configuration file for nodelet.
 nodelet_DIR:PATH=/opt/ros/indigo/share/nodelet/cmake
 
+//Path to a library.
+onelib:FILEPATH=/usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+
 //The directory containing a CMake configuration file for pcl_conversions.
 pcl_conversions_DIR:PATH=/opt/ros/indigo/share/pcl_conversions/cmake
 
@@ -484,12 +448,6 @@ pluginlib_DIR:PATH=/opt/ros/indigo/share/pluginlib/cmake
 
 //The directory containing a CMake configuration file for resource_retriever.
 resource_retriever_DIR:PATH=/opt/ros/indigo/share/resource_retriever/cmake
-
-//Value Computed by CMake
-rethink_ee_description_BINARY_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_common/rethink_ee_description
-
-//Value Computed by CMake
-rethink_ee_description_SOURCE_DIR:STATIC=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_common/rethink_ee_description
 
 //The directory containing a CMake configuration file for rosbag.
 rosbag_DIR:PATH=/opt/ros/indigo/share/rosbag/cmake
@@ -563,6 +521,12 @@ topic_tools_DIR:PATH=/opt/ros/indigo/share/topic_tools/cmake
 //The directory containing a CMake configuration file for trajectory_msgs.
 trajectory_msgs_DIR:PATH=/opt/ros/indigo/share/trajectory_msgs/cmake
 
+//The directory containing a CMake configuration file for urdfdom.
+urdfdom_DIR:PATH=/usr/share/urdfdom/cmake
+
+//The directory containing a CMake configuration file for urdfdom_headers.
+urdfdom_headers_DIR:PATH=/usr/share/urdfdom_headers/cmake
+
 //The directory containing a CMake configuration file for visualization_msgs.
 visualization_msgs_DIR:PATH=/opt/ros/indigo/share/visualization_msgs/cmake
 
@@ -576,7 +540,7 @@ xmlrpcpp_DIR:PATH=/opt/ros/indigo/share/xmlrpcpp/cmake
 
 //catkin environment
 CATKIN_ENV:INTERNAL=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/catkin_generated/env_cached.sh
-CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/cc/ee106b/sp17/class/ee106b-aah/ros_workspaces/final_proj/build/test_results
+CATKIN_TEST_RESULTS_DIR:INTERNAL=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/test_results
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_BUILD_TOOL
@@ -651,7 +615,7 @@ CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1
 CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Start directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/cc/ee106b/sp17/class/ee106b-aah/ros_workspaces/final_proj/src
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
