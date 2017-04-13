@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 SUBDIRS(gtest)
+SUBDIRS(freenect_launch)
 SUBDIRS(baxter_pykdl)
 SUBDIRS(final_proj)
 SUBDIRS(joint_velocity)

@@ -241,6 +241,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named _catkin_empty_exported_target
+
+# Build rule for target.
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/build.make freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_generate_messages_cpp
 
 # Build rule for target.
@@ -772,19 +785,6 @@ trajectory_msgs_generate_messages_py: cmake_check_build_system
 trajectory_msgs_generate_messages_py/fast:
 	$(MAKE) -f baxter_pykdl/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make baxter_pykdl/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
 .PHONY : trajectory_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named _catkin_empty_exported_target
-
-# Build rule for target.
-_catkin_empty_exported_target: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	$(MAKE) -f final_proj/CMakeFiles/_catkin_empty_exported_target.dir/build.make final_proj/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
 # Target rules for targets named baxter_maintenance_msgs_generate_messages_cpp
@@ -1664,6 +1664,7 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... _catkin_empty_exported_target"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_py"
@@ -1705,7 +1706,6 @@ help:
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... baxter_maintenance_msgs_generate_messages_cpp"
 	@echo "... baxter_maintenance_msgs_generate_messages_lisp"
 	@echo "... baxter_maintenance_msgs_generate_messages_py"

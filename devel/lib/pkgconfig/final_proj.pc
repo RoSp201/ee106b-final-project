@@ -1,8 +1,8 @@
-prefix=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel
+prefix=/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel
 
 Name: final_proj
 Description: Description of final_proj
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/lib 
+Libs: -L/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib 
 Requires: 

@@ -1,2 +1,2 @@
-ar_track_alvar:baxter_pykdl:final_proj:joint_velocity
--DCATKIN_DEVEL_PREFIX=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel -DCMAKE_INSTALL_PREFIX=/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install -G Unix Makefiles
+ar_track_alvar:baxter_pykdl:final_proj:freenect_launch:joint_velocity
+-DCATKIN_DEVEL_PREFIX=/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel -DCMAKE_INSTALL_PREFIX=/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install -G Unix Makefiles

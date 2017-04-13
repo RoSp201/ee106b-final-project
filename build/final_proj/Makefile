@@ -150,20 +150,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-final_proj/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : final_proj/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: final_proj/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f final_proj/CMakeFiles/_catkin_empty_exported_target.dir/build.make final_proj/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-# Convenience name for target.
 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule:
 	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule
@@ -211,7 +197,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... baxter_maintenance_msgs_generate_messages_cpp"
 	@echo "... baxter_maintenance_msgs_generate_messages_lisp"
 	@echo "... baxter_maintenance_msgs_generate_messages_py"
