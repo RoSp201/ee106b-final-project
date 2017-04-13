@@ -7,7 +7,7 @@ import moveit_commander
 from moveit_msgs.msg import OrientationConstraint, Constraints
 from geometry_msgs.msg import PoseStamped
 import baxter_pykdl as kdl
-#import transformations.py
+#import transformations.py   <-- there was an issue importing while running
 import numpy as np
 
 import tf
@@ -23,7 +23,7 @@ def command_joint_velocities():
     #Initialize the left limb for joint velocity control
     kin_left = kdl.baxter_kinematics('left')
     kin_right = kdl.baxter_kinematics('right')
-    #limb = baxter_interface.Limb('left')
+    # limb = baxter_interface.Limb('left')
     # angles = limb.joint_angles()
     # velocities = limb.joint_velocities()
     left = kin_left._limb_interface
@@ -56,7 +56,6 @@ def command_joint_velocities():
         left.set_joint_velocities(cmd)
         rospy.sleep(0.1)
 
-
         # # grab transform
         # while not found:
         #     rospy.sleep(1.0)
@@ -67,11 +66,7 @@ def command_joint_velocities():
         #         found = True
         #     except Exception as e:
         #         print "Error: {}".format(e)
-
-        right_velocities = right.joint_velocities()
-
-        rospy.sleep(0.05)
-        cmd_left_vel = left.set_joint_velocities(right_velocities)
+        rospy.sleep(0.1)
 
 
 
