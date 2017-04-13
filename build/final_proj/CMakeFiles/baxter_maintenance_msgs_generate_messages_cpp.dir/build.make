@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 # Utility rule file for baxter_maintenance_msgs_generate_messages_cpp.
 
@@ -56,10 +56,10 @@ final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/build: b
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/build
 
 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/final_proj && $(CMAKE_COMMAND) -P CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/final_proj && $(CMAKE_COMMAND) -P CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/clean
 
 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/final_proj /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/final_proj /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/final_proj /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/final_proj /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/depend
 

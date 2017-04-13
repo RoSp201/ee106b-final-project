@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 # Utility rule file for download_extra_data.
 
@@ -60,6 +60,6 @@ CMakeFiles/download_extra_data.dir/clean:
 .PHONY : CMakeFiles/download_extra_data.dir/clean
 
 CMakeFiles/download_extra_data.dir/depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/download_extra_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/download_extra_data.dir/depend
 

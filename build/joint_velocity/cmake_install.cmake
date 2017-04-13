@@ -1,8 +1,8 @@
-# Install script for directory: /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/joint_velocity
+# Install script for directory: /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/joint_velocity
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/joint_velocity/catkin_generated/installspace/joint_velocity.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/joint_velocity/catkin_generated/installspace/joint_velocity.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joint_velocity/cmake" TYPE FILE FILES
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/joint_velocity/catkin_generated/installspace/joint_velocityConfig.cmake"
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/joint_velocity/catkin_generated/installspace/joint_velocityConfig-version.cmake"
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/joint_velocity/catkin_generated/installspace/joint_velocityConfig.cmake"
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/joint_velocity/catkin_generated/installspace/joint_velocityConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joint_velocity" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/joint_velocity/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/joint_velocity" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/joint_velocity/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

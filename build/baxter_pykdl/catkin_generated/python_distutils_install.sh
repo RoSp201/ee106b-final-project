@@ -14,20 +14,20 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl"
+echo_and_run cd "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/baxter_pykdl"
 
 # snsure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install/lib/python2.7/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install/lib/python2.7/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install/lib/python2.7/dist-packages:/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/lib/python2.7/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build" \
+    PYTHONPATH="/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install/lib/python2.7/dist-packages:/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/lib/python2.7/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build" \
     "/usr/bin/python" \
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl/setup.py" \
-    build --build-base "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl" \
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/baxter_pykdl/setup.py" \
+    build --build-base "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl" \
     install \
     $DESTDIR_ARG \
-    --install-layout=deb --prefix="/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install" --install-scripts="/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install/bin"
+    --install-layout=deb --prefix="/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install" --install-scripts="/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install/bin"

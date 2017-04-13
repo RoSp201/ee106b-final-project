@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 # Utility rule file for roscpp_generate_messages_lisp.
 
@@ -56,10 +56,10 @@ baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/build: roscpp_generate
 .PHONY : baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 
 baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 
 baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/baxter_pykdl /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : baxter_pykdl/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
 

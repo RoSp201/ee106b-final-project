@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 # Utility rule file for run_tests_ar_track_alvar_rostest.
 
@@ -56,10 +56,10 @@ ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/build: run_tests_
 .PHONY : ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/build
 
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_ar_track_alvar_rostest.dir/cmake_clean.cmake
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_ar_track_alvar_rostest.dir/cmake_clean.cmake
 .PHONY : ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/clean
 
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/depend
 
