@@ -39,12 +39,6 @@ In new baxter shell, start Rviz to see transformations being published by tf:
 
 Once rviz is running, make sure to set up camera and tf frames properly.
 
-If working without baxter, make sure that the bashrc file is sourcing the correct files and run roscore in the terminal.
-
-Before running ar_track_alvar, freenect needs to be launched. This is done by calling the following command:
-	
-	roslaunch freenect_launch freenect.launch
-
 To use ar_track_alvar, run launch script in new baxter shell:
 
 	roslaunch final_project ar_track_alvar.launch
