@@ -145,7 +145,6 @@ def command_joint_velocities():
         #         print "Error: {}".format(e)
 
 
-
         #### Joint velocity control example for right arm ###
 
         # cmd = {}
