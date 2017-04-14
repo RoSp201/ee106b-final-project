@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 # Utility rule file for ar_track_alvar_4markers_tork.bag.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
 include ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/progress.make
 
 ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar && /opt/ros/indigo/share/catkin/cmake/test/download_checkmd5.py http://download.ros.org/data/ar_track_alvar/ar_track_alvar_4markers_tork_2017-02-08-11-21-14.bag /home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/share/ar_track_alvar/test/ar_track_alvar_4markers_tork_2017-02-08-11-21-14.bag 627aa0316bbfe4334e06023d7c2b4087 --ignore-error
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar && /opt/ros/indigo/share/catkin/cmake/test/download_checkmd5.py http://download.ros.org/data/ar_track_alvar/ar_track_alvar_4markers_tork_2017-02-08-11-21-14.bag /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/share/ar_track_alvar/test/ar_track_alvar_4markers_tork_2017-02-08-11-21-14.bag 627aa0316bbfe4334e06023d7c2b4087 --ignore-error
 
 ar_track_alvar_4markers_tork.bag: ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag
 ar_track_alvar_4markers_tork.bag: ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/build.make
@@ -57,10 +57,10 @@ ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/build: ar_track_a
 .PHONY : ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/build
 
 ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar && $(CMAKE_COMMAND) -P CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/cmake_clean.cmake
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar && $(CMAKE_COMMAND) -P CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/cmake_clean.cmake
 .PHONY : ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/clean
 
 ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ar_track_alvar/CMakeFiles/ar_track_alvar_4markers_tork.bag.dir/depend
 

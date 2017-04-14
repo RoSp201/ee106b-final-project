@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/trainMarkerBundle.dir/nodes/TrainMarkerBundle.cpp.o"
-  "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/lib/ar_track_alvar/trainMarkerBundle.pdb"
-  "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/lib/ar_track_alvar/trainMarkerBundle"
+  "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/ar_track_alvar/trainMarkerBundle.pdb"
+  "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/ar_track_alvar/trainMarkerBundle"
 )
 
 # Per-language clean rules from dependency scanning.

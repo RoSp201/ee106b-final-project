@@ -1,23 +1,23 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp
+Change Dir: /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec698635098/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec698635098.dir/build.make CMakeFiles/cmTryCompileExec698635098.dir/build
-make[1]: Entering directory `/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec698635098.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec698635098.dir/CheckSymbolExists.c.o   -c /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec698635098
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec698635098.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec698635098.dir/CheckSymbolExists.c.o  -o cmTryCompileExec698635098 -rdynamic 
-CMakeFiles/cmTryCompileExec698635098.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:/usr/bin/make "cmTryCompileExec2535264246/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2535264246.dir/build.make CMakeFiles/cmTryCompileExec2535264246.dir/build
+make[1]: Entering directory `/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2535264246.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2535264246.dir/CheckSymbolExists.c.o   -c /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2535264246
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2535264246.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2535264246.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2535264246 -rdynamic 
+CMakeFiles/cmTryCompileExec2535264246.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: Leaving directory `/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp'
-make[1]: *** [cmTryCompileExec698635098] Error 1
-make: *** [cmTryCompileExec698635098/fast] Error 2
+make[1]: *** [cmTryCompileExec2535264246] Error 1
+make[1]: Leaving directory `/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2535264246/fast] Error 2
 
-File /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -33,21 +33,21 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp
+Change Dir: /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec4039974562/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec4039974562.dir/build.make CMakeFiles/cmTryCompileExec4039974562.dir/build
-make[1]: Entering directory `/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec4039974562.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4039974562.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec4039974562
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4039974562.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4039974562.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4039974562 -rdynamic -lpthreads 
+Run Build Command:/usr/bin/make "cmTryCompileExec4246709911/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4246709911.dir/build.make CMakeFiles/cmTryCompileExec4246709911.dir/build
+make[1]: Entering directory `/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4246709911.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4246709911.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4246709911
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4246709911.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4246709911.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4246709911 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTryCompileExec4039974562] Error 1
-make[1]: Leaving directory `/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles/CMakeTmp'
-make: *** [cmTryCompileExec4039974562/fast] Error 2
+make[1]: Leaving directory `/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec4246709911] Error 1
+make: *** [cmTryCompileExec4246709911/fast] Error 2
 
 

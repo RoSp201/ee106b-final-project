@@ -1,8 +1,8 @@
-# Install script for directory: /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl
+# Install script for directory: /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/baxter_pykdl
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,25 +33,25 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  INCLUDE("/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl/catkin_generated/safe_execute_install.cmake")
+  INCLUDE("/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl/catkin_generated/safe_execute_install.cmake")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl/catkin_generated/installspace/baxter_pykdl.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl/catkin_generated/installspace/baxter_pykdl.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baxter_pykdl/cmake" TYPE FILE FILES
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl/catkin_generated/installspace/baxter_pykdlConfig.cmake"
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/baxter_pykdl/catkin_generated/installspace/baxter_pykdlConfig-version.cmake"
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl/catkin_generated/installspace/baxter_pykdlConfig.cmake"
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/baxter_pykdl/catkin_generated/installspace/baxter_pykdlConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baxter_pykdl" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/baxter_pykdl" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/baxter_pykdl/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/baxter_pykdl" TYPE DIRECTORY FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/baxter_pykdl/scripts/" USE_SOURCE_PERMISSIONS)
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/baxter_pykdl" TYPE DIRECTORY FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/baxter_pykdl/scripts/" USE_SOURCE_PERMISSIONS)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

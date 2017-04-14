@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,14 +120,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/final_proj/CMakeFiles/progress.marks
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles 0
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/final_proj/CMakeFiles/progress.marks
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/clean
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/clean
 .PHONY : clean
 
 # The main clean target
@@ -136,22 +136,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/preinstall
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/preinstall
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -160,12 +160,12 @@ baxter_maintenance_msgs_generate_messages_cpp: final_proj/CMakeFiles/baxter_main
 
 # fast build rule for target.
 baxter_maintenance_msgs_generate_messages_cpp/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/build.make final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/build
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/build.make final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_cpp.dir/build
 .PHONY : baxter_maintenance_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/rule:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/rule
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/rule
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -174,12 +174,12 @@ baxter_maintenance_msgs_generate_messages_lisp: final_proj/CMakeFiles/baxter_mai
 
 # fast build rule for target.
 baxter_maintenance_msgs_generate_messages_lisp/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/build.make final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/build
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/build.make final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_lisp.dir/build
 .PHONY : baxter_maintenance_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/rule:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/rule
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/rule
 .PHONY : final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -188,7 +188,7 @@ baxter_maintenance_msgs_generate_messages_py: final_proj/CMakeFiles/baxter_maint
 
 # fast build rule for target.
 baxter_maintenance_msgs_generate_messages_py/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/build.make final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/build
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/build.make final_proj/CMakeFiles/baxter_maintenance_msgs_generate_messages_py.dir/build
 .PHONY : baxter_maintenance_msgs_generate_messages_py/fast
 
 # Help Target
@@ -218,6 +218,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

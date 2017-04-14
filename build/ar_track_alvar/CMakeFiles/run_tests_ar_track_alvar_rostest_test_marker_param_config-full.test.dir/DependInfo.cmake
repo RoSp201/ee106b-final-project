@@ -16,9 +16,9 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/devel/include"
+  "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/include"
   "/usr/include/opencv"
-  "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/ar_track_alvar/include"
+  "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/ar_track_alvar/include"
   "/opt/ros/indigo/include"
   "/usr/include/eigen3"
   "/usr/include/pcl-1.7"

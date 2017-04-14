@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,14 +120,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/freenect_launch/CMakeFiles/progress.marks
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/CMakeFiles 0
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/freenect_launch/CMakeFiles/progress.marks
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/clean
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/clean
 .PHONY : clean
 
 # The main clean target
@@ -136,22 +136,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/preinstall
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/preinstall
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/rule
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f CMakeFiles/Makefile2 freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/rule
 .PHONY : freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
@@ -160,7 +160,7 @@ _catkin_empty_exported_target: freenect_launch/CMakeFiles/_catkin_empty_exported
 
 # fast build rule for target.
 _catkin_empty_exported_target/fast:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(MAKE) -f freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/build.make freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/build
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(MAKE) -f freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/build.make freenect_launch/CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
 
 # Help Target
@@ -188,6 +188,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

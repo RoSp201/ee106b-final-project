@@ -1,8 +1,8 @@
-# Install script for directory: /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/freenect_launch
+# Install script for directory: /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/freenect_launch
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,21 +33,21 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/freenect_launch/catkin_generated/installspace/freenect_launch.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/freenect_launch/catkin_generated/installspace/freenect_launch.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/freenect_launch/cmake" TYPE FILE FILES
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/freenect_launch/catkin_generated/installspace/freenect_launchConfig.cmake"
-    "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/freenect_launch/catkin_generated/installspace/freenect_launchConfig-version.cmake"
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/freenect_launch/catkin_generated/installspace/freenect_launchConfig.cmake"
+    "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/freenect_launch/catkin_generated/installspace/freenect_launchConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/freenect_launch" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/freenect_launch/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/freenect_launch" TYPE FILE FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/freenect_launch/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/freenect_launch/launch" TYPE DIRECTORY FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/freenect_launch/launch/")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/freenect_launch/launch" TYPE DIRECTORY FILES "/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/freenect_launch/launch/")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

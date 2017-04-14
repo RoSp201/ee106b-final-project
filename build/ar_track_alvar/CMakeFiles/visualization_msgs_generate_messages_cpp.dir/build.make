@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src
+CMAKE_SOURCE_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build
+CMAKE_BINARY_DIR = /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build
 
 # Utility rule file for visualization_msgs_generate_messages_cpp.
 
@@ -56,10 +56,10 @@ ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build: vi
 .PHONY : ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/build
 
 ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/clean:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar && $(CMAKE_COMMAND) -P CMakeFiles/visualization_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/clean
 
 ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/depend:
-	cd /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final_project/src/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final_project/build/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/src/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/depend
 
