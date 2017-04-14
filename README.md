@@ -1,16 +1,18 @@
 Final project starter notes
 Robert Spark, Vidush Mukund, Gabriel Al-Harbi
 
-starting up baxter
+#Setup
+
 make a symbolic link in the root of your ros workspace:
 	
 	ln -s /scratch/shared/baxter_ws/baxter.sh ~/final_project/
 
-log in to baxter shell in root of workspace. Make sure .bashrc is updated and source first if needed:
+log in to baxter shell in root of workspace. Make sure .bashrc is updated with correct parameters and source first if needed:
 
 	./baxter.sh
 
 should see yellow text with  http://robotbaxter.local:11311] in terminal prompt
+
 NOTE: make sure baxter is turned on before logging into baxter shell in order to run commands!
 
 enable baxter robot:
@@ -42,6 +44,19 @@ Once rviz is running, make sure to set up camera and tf frames properly.
 To use ar_track_alvar, run launch script in new baxter shell:
 
 	roslaunch final_project ar_track_alvar.launch
+
+Run Baxter_PyKDL to make sure Jacobians have been updated:
+
+	rosrun baxter_pykdl baxter_pykdl.py
+
+
+# Before Leaving
+
+Make sure to disable baxter before leaving the lab:
+
+	rosrun baxter_tools enable_robot.py -d
+
+
 
 
 
