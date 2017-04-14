@@ -35,7 +35,8 @@ class PIDController(object):
         self.prev_integration = prev_integration
         self.time = time
         self.derivative = 0
-        self.bias = 0.01 #bias term to prevent correction from being 0
+        self.bias = 0.001 #bias term to prevent correction from being 0
+
 
     def __str__(self):
         return "PID Controller: \n  Kp: {}\n  Kd: {}\n  Ki: {}\n  Error: {}\n  Time: {}".format(self.kp, self.kd, self.ki, self.error, self.time)
@@ -64,7 +65,9 @@ class PIDController(object):
         self.time = max(curr_time, self.time)
         self.prev_error = error
 
-        return (self.kp*error) + (self.ki*self.prev_integration) + self.kd*self.derivative
+        #TODO: shoudl add some heuristic based on previous known pose to help smooth motion
+
+        return (self.kp*error) + (self.ki*self.prev_integration) + self.kd*self.derivative + self.bias
 
 
 def to_array(args):
@@ -104,7 +107,6 @@ def command_joint_velocities():
     right_velocities = right.joint_velocities()
     #jacobian = np.array(kin_left.jacobian(angles))
     
-    num_cmd = 80
     listener = tf.TransformListener()
 
     desired_joint_vels = left.joint_velocities()
@@ -114,9 +116,8 @@ def command_joint_velocities():
 
     right_eof_position = None
 
-    # create new pid controller instance
     # note: even small kd gains yielded unstability
-    pid = PIDController(kp=0.5, kd=0.05, ki=0.001)
+    pid = PIDController(kp=0.4, kd=0.05, ki=0.001)
 
     #note: could make separate pid controller for each joint on arm if needed
     
@@ -167,22 +168,29 @@ def command_joint_velocities():
         desired_joint_vels = to_dictionary(new_left_vel)
         print "new left joint velocities: \n{}".format(desired_joint_vels)
 
-        # command the left arm to move with the determined joint velocities 
-        #left.set_joint_velocities(new_left_vel)
 
-        # TODO: add some form of control to this to make these movements more exact
         actual_joint_vels = left.joint_velocities()
         output_joint_velocities = {}
 
+        alpha = 0.6
+        joint_errors = {}
+        # peform pid control on the error produced by each joint on left arm
         for key in actual_joint_vels.keys():
             error = desired_joint_vels[key] - actual_joint_vels[key]
-            output_joint_velocities[key] = desired_joint_vels[key] + pid.controller_output(error)
+            joint_errors[key] = error
+            output_joint_velocities[key] = (desired_joint_vels[key]*alpha + pid.controller_output(error)*(1-alpha)) / 0.5
 
         # command the left arm to move with the determined joint velocities 
         left.set_joint_velocities(output_joint_velocities)
 
+        max_joint_name, max_joint_value = -1000, -1000
+        for joint_name in joint_errors.keys():
+            if joint_errors[joint_name] > max_joint_value:
+                max_joint_value = joint_errors[joint_name]
+                max_joint_name = joint_name
+
         # note: may want to consider adding some smoothing parameter if motions become very unstable
-        print "joint velocity error: {}".format(error)
+        print "max joint velocity error: {} at joint: {}".format(max_joint_value, max_joint_name)
         rospy.sleep(0.1)
 
    
