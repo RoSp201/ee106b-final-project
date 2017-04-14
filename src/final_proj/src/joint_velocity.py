@@ -15,7 +15,7 @@ import time
 
 listener = None
 
-def pid_controller(error, prev_error=0, prev_integration=0, Kd=0, Kp=0, Ki=0):
+def pid_controller(error, prev_error=0, prev_integration=0, Kd=0.0, Kp=0.0, Ki=0.0):
 
     try:
         integration = prev_integration + error
@@ -26,27 +26,26 @@ def pid_controller(error, prev_error=0, prev_integration=0, Kd=0, Kp=0, Ki=0):
 
 class PIDController(object):
 
-    def __init__(self, error=0, prev_error=0, prev_integration=0, kd=0, kp=0, ki=0, time=0):
+    def __init__(self, error=0, prev_error=0, prev_integration=0, kd=0.0, kp=0.0, ki=0.0, time=0.0):
         self.kd = kd
         self.kp = kp
         self.ki = ki
         self.prev_error = prev_error
         self.error = error
         self.prev_integration = prev_integration
-        self.previous_output = None
         self.time = time
         self.derivative = 0
 
     def __str__(self):
         return "PID Controller: \n  Kp: {}\n  Kd: {}\n  Ki: {}\n  Error: {}\n  Time: {}".format(self.kp, self.kd, self.ki, self.error, self.time)
 
-    def set_kp(self, kp=0):
+    def set_kp(self, kp=0.0):
         self.kp = kp
 
-    def set_ki(self, ki=0):
+    def set_ki(self, ki=0.0):
         self.ki = ki
 
-    def set_kd(self, kd=0):
+    def set_kd(self, kd=0.0):
         self.kd = kd
 
     def controller_output(self, error, curr_time=0):
@@ -114,6 +113,7 @@ def command_joint_velocities():
 
     # create new pid controller instance
     pid = PIDController()
+    print pid
 
     while not rospy.is_shutdown():
 
