@@ -35,6 +35,7 @@ class PIDController(object):
         self.prev_integration = prev_integration
         self.time = time
         self.derivative = 0
+        self.bias = 0.01 #bias term to prevent correction from being 0
 
     def __str__(self):
         return "PID Controller: \n  Kp: {}\n  Kd: {}\n  Ki: {}\n  Error: {}\n  Time: {}".format(self.kp, self.kd, self.ki, self.error, self.time)
@@ -54,14 +55,16 @@ class PIDController(object):
         """
         self.derivative = (error - self.prev_error)
 
-        if curr_time - self.time > 0:
-            self.derivative /= (curr_time-self.time)
-
         self.prev_integration = self.prev_integration + error
+
+        if curr_time - self.time > 0:
+            self.derivative = self.derivative / (curr_time-self.time) #multiple instead of divide because < 1
+            self.prev_integration *= (curr_time-self.time)
+        
         self.time = max(curr_time, self.time)
         self.prev_error = error
 
-        return Kp*self.prev_error + Ki*self.prev_integration + Kd*self.derivative
+        return (self.kp*error) + (self.ki*self.prev_integration) + self.kd*self.derivative
 
 
 def to_array(args):
@@ -99,7 +102,7 @@ def command_joint_velocities():
     right_angles = None
     left_velocities = left.joint_velocities()
     right_velocities = right.joint_velocities()
-    jacobian = np.array(kin.jacobian(angles))
+    #jacobian = np.array(kin_left.jacobian(angles))
     
     num_cmd = 80
     listener = tf.TransformListener()
@@ -112,11 +115,14 @@ def command_joint_velocities():
     right_eof_position = None
 
     # create new pid controller instance
-    pid = PIDController()
-    print pid
+    # note: even small kd gains yielded unstability
+    pid = PIDController(kp=0.5, kd=0.05, ki=0.001)
+
+    #note: could make separate pid controller for each joint on arm if needed
+    
 
     while not rospy.is_shutdown():
-
+        print pid
         found = False
         right_angles = right.joint_angles()
         position, quaternion = None, None
@@ -169,11 +175,11 @@ def command_joint_velocities():
         output_joint_velocities = {}
 
         for key in actual_joint_vels.keys():
-            error = desired_joint_vels[key] - actual_join_vels[key]
+            error = desired_joint_vels[key] - actual_joint_vels[key]
             output_joint_velocities[key] = desired_joint_vels[key] + pid.controller_output(error)
 
         # command the left arm to move with the determined joint velocities 
-        #left.set_joint_velocities(output_joint_velocities)
+        left.set_joint_velocities(output_joint_velocities)
 
         # note: may want to consider adding some smoothing parameter if motions become very unstable
         print "joint velocity error: {}".format(error)
