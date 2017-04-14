@@ -62,7 +62,7 @@ class PIDController(object):
         self.time = max(curr_time, self.time)
         self.prev_error = error
 
-        return Kp*self.prev_error + Ki*self.prev_integration + Kd*self.derivative, self.prev_error, self.prev_integration
+        return Kp*self.prev_error + Ki*self.prev_integration + Kd*self.derivative
 
 
 def to_array(args):
@@ -105,10 +105,15 @@ def command_joint_velocities():
     num_cmd = 80
     listener = tf.TransformListener()
 
+    desired_joint_vels = left.joint_velocities()
+
     from_frame = 'base'
     to_frame = 'right_gripper'
-    
+
     right_eof_position = None
+
+    # create new pid controller instance
+    pid = PIDController()
 
     while not rospy.is_shutdown():
 
@@ -118,6 +123,20 @@ def command_joint_velocities():
         right_jacobian = kin_right.jacobian()
         right_pinv_jacobian = np.array(kin_right.jacobian_pseudo_inverse(right_angles))
         pinv_jacobian = np.array(kin_left.jacobian_pseudo_inverse(left_angles))
+
+
+        ### TODO: Use transform from model to grab correct transform ###
+
+        # while not found:
+        #     rospy.sleep(0.5)
+        #     try:
+        #         t = listener.getLatestCommonTime(from_frame, to_frame)
+        #         position, quaternion = listener.lookupTransform(from_frame, to_frame, t)
+        #         print "\n\nposition: {}\norientation: {}\n".format(position, quaternion)
+        #         found = True
+        #     except Exception as e:
+        #         print "Error: {}".format(e)
+
 
 
         #### Joint velocity control example for right arm ###
@@ -136,30 +155,28 @@ def command_joint_velocities():
         right_eof_velocity = np.array([[right_eof_v['linear'][0], right_eof_v['linear'][1], right_eof_v['linear'][2], right_eof_v['angular'][0], right_eof_v['angular'][1], right_eof_v['angular'][2]]]).T
         new_left_vel = pinv_jacobian.dot(right_eof_velocity)
 
-
-        print "right eof velocity: {}".format(right_eof_velocity)
-        print "left inverse jacobian: {}".format(pinv_jacobian)
-        print "left joint velocities: {}".format(new_left_vel)
-        new_left_vel = to_dictionary(new_left_vel)
-        print "new left joint velocities: {}".format(new_left_vel)
+        print "right eof velocity: \n{}".format(right_eof_velocity)
+        #print "left inverse jacobian: {}".format(pinv_jacobian)
+        #print "left joint velocities: {}".format(new_left_vel)
+        desired_joint_vels = to_dictionary(new_left_vel)
+        print "new left joint velocities: \n{}".format(desired_joint_vels)
 
         # command the left arm to move with the determined joint velocities 
-        left.set_joint_velocities(new_left_vel)
+        #left.set_joint_velocities(new_left_vel)
+
         # TODO: add some form of control to this to make these movements more exact
+        actual_joint_vels = left.joint_velocities()
+        output_joint_velocities = {}
 
+        for key in actual_joint_vels.keys():
+            error = desired_joint_vels[key] - actual_join_vels[key]
+            output_joint_velocities[key] = desired_joint_vels[key] + pid.controller_output(error)
 
-        ### TODO: Use transform from model to grab correct transform ###
+        # command the left arm to move with the determined joint velocities 
+        #left.set_joint_velocities(output_joint_velocities)
 
-        # while not found:
-        #     rospy.sleep(0.5)
-        #     try:
-        #         t = listener.getLatestCommonTime(from_frame, to_frame)
-        #         position, quaternion = listener.lookupTransform(from_frame, to_frame, t)
-        #         print "\n\nposition: {}\norientation: {}\n".format(position, quaternion)
-        #         found = True
-        #     except Exception as e:
-        #         print "Error: {}".format(e)
-
+        # note: may want to consider adding some smoothing parameter if motions become very unstable
+        print "joint velocity error: {}".format(error)
         rospy.sleep(0.1)
 
    
