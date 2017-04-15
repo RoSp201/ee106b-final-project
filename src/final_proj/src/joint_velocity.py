@@ -12,13 +12,23 @@ import numpy as np
 
 import tf
 import time
+from std_msgs.msg import Float32MultiArray
+import ar_track
 
 listener = None
+
+prev_pos = np.array([0,0,0])
+curr_pos = np.array([0,0,0])
+
+def callback(data):
+    global curr_pos
+    curr_pos = np.array(data.data)
 
 def command_joint_velocities():
 
     #Start a node
     rospy.init_node('baxter_joint_kinematics_node', anonymous=True)
+    rospy.Subscriber("kinect_pos_track", Float32MultiArray, callback)
 
     #Initialize the left limb for joint velocity control
     kin_left = kdl.baxter_kinematics('left')
@@ -41,7 +51,7 @@ def command_joint_velocities():
     from_frame = 'base'
     to_frame = 'right_gripper'
 
-    print velocities
+    # print velocities
     while not rospy.is_shutdown():
         found = False
         position, quaternion = None, None
@@ -49,10 +59,12 @@ def command_joint_velocities():
         cmd = {}
         #note this is just for demonstration, next step will be to use the transforms of each joint
         for idx, name in enumerate(left.joint_names()):
+            # if name[-2:] == 's1':
             v = right.joint_velocity(right.joint_names()[idx])
             #if name[-2:] in ('s0', 'e0', 'w0', 'w2'):
             #    v = -v
-            cmd['left_'+name[-2:]] = v * 1.0
+            # need to convert velocity to rad/s
+            cmd['left_'+name[-2:]] = v
         left.set_joint_velocities(cmd)
         rospy.sleep(0.1)
 
@@ -111,4 +123,6 @@ def command_joint_velocities():
 
 
 if __name__ == '__main__':
+    prev_pos = np.array([0,0,0])
+    curr_pos = np.array([0,0,0])
     command_joint_velocities()
