@@ -33,21 +33,12 @@ If using MoveIt to do motion planning, run the baxter moveit config launch scrip
 
 	roslaunch baxter_moveit_config move_group.launch
 
-In new baxter shell, start Rviz to see transformations being published by tf:
 
-	rosrun rviz rviz
+Afterwards, run the following commands in this order while inside baxter:
+	1. roslaunch freenect_launch freenect.launch
+	2. roslaunch ar_track_alvar pr2_indiv.launch
+	3. rosrun final_proj ar_track.py
 
-Once rviz is running, make sure to set up camera and tf frames properly.
-
-If working without baxter, make sure that the bashrc file is sourcing the correct files and run roscore in the terminal.
-
-Before running ar_track_alvar, freenect needs to be launched. This is done by calling the following command:
-	
-	roslaunch freenect_launch freenect.launch
-
-To use ar_track_alvar, run launch script in new baxter shell:
-
-	roslaunch final_project ar_track_alvar.launch
-
-
-
+The first command connects to the Kinect camera.
+The second command connects AR tracking to the camera
+The third command publishes AR tag positions and rotations based on custom translations.
