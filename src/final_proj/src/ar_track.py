@@ -49,18 +49,13 @@ def talker():
     while not rospy.is_shutdown():
         position, quaternion = ar_tracker(listener,from_frame,to_frame)
 
-        rate.sleep()
-        position2, quaternion2 = ar_tracker(listener,from_frame,to_frame)
-
         if position == None or quaternion == None:
-            continue
-        if position2 == None or quaternion2 == None:
             continue
         #publish position and quaternion velocity values
         pos = Float32MultiArray()
-        pos.data = position2-position
+        pos.data = position
         quat = Float32MultiArray()
-        quat.data = quaternion2-quaternion2
+        quat.data = quaternion
         pub.publish(pos)
         pub2.publish(quat)
         rate.sleep()
