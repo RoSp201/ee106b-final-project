@@ -35,8 +35,11 @@ If using MoveIt to do motion planning, run the baxter moveit config launch scrip
 
 
 Afterwards, run the following commands in this order while inside baxter:
+
 	roslaunch freenect_launch freenect.launch
+
 	roslaunch ar_track_alvar pr2_indiv.launch
+	
 	rosrun final_proj ar_track.py
 
 The first command connects to the Kinect camera.
