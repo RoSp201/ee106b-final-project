@@ -63,9 +63,11 @@ def command_joint_velocities():
             break
         except:
             continue
+    r = np.hstack((-1*np.array([curr_pos]),np.array([eulerr])))
     # print velocities
     while not rospy.is_shutdown():
 
+        r = np.hstack((np.array([curr_pos][::-1]),np.array([eulerr])))
         kin_left = kdl.baxter_kinematics('left')
 
         left_angles = left.joint_angles()
@@ -76,7 +78,7 @@ def command_joint_velocities():
         # print(np.array([[0,0,0,0,0,0]]).shape)
         while not rospy.is_shutdown():
             try:
-                t = listener.getLatestCommonTime('/base','/right_gripper')
+                t = listener.getLatestCommonTime('/base','/left_gripper')
                 posl,quatl = listener.lookupTransform('/base','/left_gripper', t)
                 eulerl = [0,0,0]
                 l = np.hstack((np.array([posl]),np.array([eulerl])))
@@ -85,8 +87,8 @@ def command_joint_velocities():
                 continue
         delta_theta = np.dot(pinv_jacobian,(r-l).T)
         #note this is just for demonstration, next step will be to use the transforms of each joint
-        print(delta_theta)
-        left.set_joint_velocities(to_dictionary(delta_theta*.08))
+        # print(delta_theta)
+        left.set_joint_velocities(to_dictionary(delta_theta*.4))
 
 if __name__ == '__main__':
     prev_pos = np.array([0,0,0])
