@@ -33,7 +33,7 @@ def ar_tracker(listener,from_frame,to_frame):
 def talker():
 
     rospy.init_node('talker', anonymous=True)
-    ar_tags = ['ar_marker_1', 'ar_marker_4']
+    ar_tags = ['ar_marker_4', 'ar_marker_1']
 
     #Start tf node
     listener = tf.TransformListener()
@@ -47,10 +47,16 @@ def talker():
     rate = rospy.Rate(10) # 10hz
 
     while not rospy.is_shutdown():
-        position, quaternion = ar_tracker(listener,from_frame,to_frame)
+        position1, quaternion = ar_tracker(listener,'camera_link',from_frame)
+        position2, quaternion = ar_tracker(listener,'camera_link',to_frame)
 
-        if position == None or quaternion == None:
+        # position, quaternion = ar_tracker(listener,from_frame,to_frame)
+
+        if position1 == None or quaternion == None or position2 == None:
             continue
+
+        position = (position2 - position1)*2
+        print position
         #publish position and quaternion velocity values
         pos = Float32MultiArray()
         pos.data = position
