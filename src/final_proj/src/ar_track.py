@@ -33,7 +33,7 @@ def ar_tracker(listener,from_frame,to_frame):
 def talker():
 
     rospy.init_node('talker', anonymous=True)
-    ar_tags = ['ar_marker_4', 'ar_marker_1']
+    ar_tags = ['ar_marker_3', 'ar_marker_0'] #chest, left_hand
 
     #Start tf node
     listener = tf.TransformListener()
@@ -44,7 +44,8 @@ def talker():
 
     pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=10)
 
-    rate = rospy.Rate(10) # 10hz
+    #rate = rospy.Rate(10) # 10hz
+    rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
         position1, quaternion = ar_tracker(listener,'camera_link',from_frame)

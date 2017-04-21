@@ -77,8 +77,9 @@ def command_joint_velocities():
         left_angles = left.joint_angles()
         try:
             jacobian = kin_left.jacobian()
-
             pinv_jacobian = kin_left.jacobian_pseudo_inverse()
+            square_mtrix = np.dot(jacobian, jacobian.T)
+            
         except:
             continue
         while not rospy.is_shutdown():
