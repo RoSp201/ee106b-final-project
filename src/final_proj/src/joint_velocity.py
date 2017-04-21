@@ -3,13 +3,9 @@
 import rospy
 import sys
 import baxter_interface
-import moveit_commander
-from moveit_msgs.msg import OrientationConstraint, Constraints
-from geometry_msgs.msg import PoseStamped
 import baxter_pykdl as kdl
 import transformations
 import numpy as np
-
 import tf
 import time
 from std_msgs.msg import Float32MultiArray
@@ -36,14 +32,13 @@ def to_dictionary(args):
 
 def callback(data):
     global curr_pos
-    curr_pos = np.array(data.data)
+    curr_pos = np.array(data.data)   #data received from sub in curr pos 
     curr_pos[0] = -1*curr_pos[0]
 
     curr_pos[1] = -1*curr_pos[1]
 
 
 class PIDController(object):
-
     def __init__(self, error=0, prev_error=0, prev_integration=0, kd=0.0, kp=0.0, ki=0.0, time=0.0):
         self.kd = kd
         self.kp = kp
@@ -54,7 +49,6 @@ class PIDController(object):
         self.time = time
         self.derivative = 0
         self.bias = 0.001 #bias term to prevent correction from being 0
-
 
     def __str__(self):
         return "PID Controller: \n  Kp: {}\n  Kd: {}\n  Ki: {}\n  Error: {}\n  Time: {}".format(self.kp, self.kd, self.ki, self.error, self.time)
@@ -102,8 +96,8 @@ def command_joint_velocities():
     right = kin_right._limb_interface
 
     listener = tf.TransformListener()
-
     right_angles = right.joint_angles()
+
     while not rospy.is_shutdown():
         try:
             t = listener.getLatestCommonTime('/base','/right_gripper')
@@ -114,35 +108,35 @@ def command_joint_velocities():
         except:
             continue
     r = np.hstack((-1*np.array([curr_pos]),np.array([eulerr])))
-    # print velocities
-    count = 0
+
+
+    # get baxter pykdl jacobians
     while not rospy.is_shutdown():
         # eulerr = transformations.euler_from_quaternion([0,0,1,0])
         r = np.hstack((np.array([curr_pos]),np.array([eulerr])))
-        kin_left = kdl.baxter_kinematics('left')
-
         left_angles = left.joint_angles()
         try:
             jacobian = kin_left.jacobian()
-
             pinv_jacobian = kin_left.jacobian_pseudo_inverse()
         except:
             continue
+
+        # get transform for left gripper on baxter
         while not rospy.is_shutdown():
             try:
-                t = listener.getLatestCommonTime('/base','/left_gripper')
-                posl,quatl = listener.lookupTransform('/base','/left_gripper', t)
+                t = listener.getLatestCommonTime('/base', '/left_gripper')
+                posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
                 print posl
                 # posl[0] = -1*posl[0]
                 # print posl
                 # eulerl = transformations.euler_from_quaternion(quatl)
-                eulerl = [0,0,0]
-                l = np.hstack((np.array([posl]),np.array([eulerl])))
+                euler_left_hand = [0, 0, 0]
+                left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  #zero out orientation
                 break
             except:
                 continue
-                print "No Transform"
-        delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian,l.T)
+
+        delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian,left_baxter_eof.T)  #take difference between positions
         left.set_joint_velocities(to_dictionary(delta_theta))
 
         ### old code here for reference (from merge) ###
