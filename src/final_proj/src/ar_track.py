@@ -6,6 +6,7 @@ import numpy as np
 import tf
 import time
 from std_msgs.msg import Float32MultiArray
+import exp_quat_func as eqf
 
 listener = None
 
@@ -24,24 +25,42 @@ def human_ar_talker(ar_markers):
 
     pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=10)
     pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=10)
-    rate = rospy.Rate(20) # 10hz
+    rate = rospy.Rate(5) # 20hz
+
+    quaternion1 = None
 
     while not rospy.is_shutdown():
 
-        position1, quaternion = ar_tracker(listener, 'camera_link', human_base_frame)
-        position2, quaternion = ar_tracker(listener, 'camera_link', human_left_eof_frame)
+        position1, quaternion1 = ar_tracker(listener, 'camera_link', human_base_frame)
+        position2, quaternion2 = ar_tracker(listener, 'camera_link', human_left_eof_frame)
 
-        if position1 == None or quaternion == None or position2 == None:
+        if position1 == None or quaternion1 == None or position2 == None:
             continue
 
-        position = (position2 - position1)*2  #this is a rough scaling factor for eof diff between human and baxter
+        position = (position2 - position1)*2  #this is a rough scaling factor for eof diff between human and baxter, hand ar pointed left
         print position
+
+        #human base orientation needs to be rotated about y axis -pi/2
+        # make rbt for quat 1
+        human_base_rbt = eqf.create_rbt(quaternion1, -np.pi/2, np.array([0,0,0]))
+        print "quaternion 1: \n{}".format(human_base_rbt)
+
+        #make rbt for hand
+        human_left_eof_rbt = eqf.create_rbt(quaternion1, 1, np.array([0,0,0]))
+        print "quaternion 2: \n{}".format(human_left_eof_rbt)
+
+        #make rbt for hand
+        rel_orientation = eqf.compute_gab(human_base_rbt, human_left_eof_rbt)*0.25
+        print "quaternion 3: \n{}".format(eqf.find_omega_theta(rel_orientation[:3,:3])[0])
+
+
+
 
         #publish position and quaternion velocity values
         pos = Float32MultiArray()
         pos.data = position
         quat = Float32MultiArray()
-        quat.data = quaternion
+        quat.data = eqf.find_omega_theta(rel_orientation[:3,:3])[0] #quaternion1
         pub.publish(pos)
         pub2.publish(quat)
         rate.sleep()
@@ -54,7 +73,7 @@ if __name__ == '__main__':
     listener = tf.TransformListener()
 
     if len(sys.argv) < 2:
-        print 'Use: rosrun final_proj ar_track.py [ chest AR tag number ] [ left hand AR tag number]'
+        print 'Use: rosrun final_proj ar_track.py [ chest AR tag number ] [ left hand AR tag number ]'
         sys.exit()
 
     ar_markers = {}

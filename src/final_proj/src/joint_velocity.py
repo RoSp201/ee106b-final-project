@@ -15,6 +15,7 @@ listener = None
 
 prev_pos = np.array([0,0,0])
 curr_pos = np.array([0,0,0])
+curr_rot = np.array([0,0,0])
 
 def to_array(args):
     array = []
@@ -36,6 +37,13 @@ def callback(data):
     curr_pos[0] = -1*curr_pos[0]
 
     curr_pos[1] = -1*curr_pos[1]
+
+def callback1(data):
+    global curr_rot
+    curr_rot = np.array(data.data)   #data received from sub in curr pos 
+    #curr_pos[0] = -1*curr_pos[0]
+    #curr_pos[1] = -1*curr_pos[1]
+
 
 
 class PIDController(object):
@@ -85,6 +93,8 @@ def command_joint_velocities():
     #Start a node
     rospy.init_node('baxter_joint_kinematics_node', anonymous=True)
     rospy.Subscriber("kinect_pos_track", Float32MultiArray, callback)
+    rospy.Subscriber("kinect_quat_track", Float32MultiArray, callback1)
+
 
     #Initialize the left limb for joint velocity control
     kin_left = kdl.baxter_kinematics('left')
@@ -126,17 +136,20 @@ def command_joint_velocities():
             try:
                 t = listener.getLatestCommonTime('/base', '/left_gripper')
                 posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
-                print posl
+                #print posl
                 # posl[0] = -1*posl[0]
                 # print posl
                 # eulerl = transformations.euler_from_quaternion(quatl)
-                euler_left_hand = [0, 0, 0]
+                euler_left_hand = [0, 0, 0] #base rotated pi/2 in about y axis if chest ar tag with white pixel upper left orientation
+                euler_left_hand = [curr_rot[0], curr_rot[1], curr_rot[2]]
                 left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  #zero out orientation
+                print euler_left_hand
+                #left_baxter_eof = np.hstack((np.array([posl]), euler_left_hand))  #zero out orientation
                 break
             except:
                 continue
 
-        delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian,left_baxter_eof.T)  #take difference between positions
+        delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian, left_baxter_eof.T)  #take difference between positions
         left.set_joint_velocities(to_dictionary(delta_theta))
 
         ### old code here for reference (from merge) ###
@@ -179,4 +192,5 @@ def command_joint_velocities():
 if __name__ == '__main__':
     prev_pos = np.array([0,0,0])
     curr_pos = np.array([0,0,0])
+    curr_rot = np.array([0,0,0])
     command_joint_velocities()
