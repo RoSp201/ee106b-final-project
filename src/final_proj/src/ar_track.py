@@ -8,13 +8,17 @@ import time
 from std_msgs.msg import Float32MultiArray
 import exp_quat_func as eqf
 
+from core import transformations
+
 listener = None
 
 def ar_tracker(listener, from_frame, to_frame):
     try:
         listener.waitForTransform(from_frame, to_frame, rospy.Time(0),rospy.Duration(4.0))
         pos, quat = listener.lookupTransform(from_frame, to_frame, rospy.Time(0))
-        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0],quat[1],quat[2]])
+        print "quat {}".format(quat)
+        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0],quat[1],quat[2],quat[3]])
+
     except Exception as e:
         return None, None
 
@@ -25,7 +29,8 @@ def human_ar_talker(ar_markers):
 
     pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=10)
     pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=10)
-    rate = rospy.Rate(5) # 20hz
+
+    rate = rospy.Rate(20) # 20hz
 
     quaternion1 = None
 
@@ -38,21 +43,15 @@ def human_ar_talker(ar_markers):
             continue
 
         position = (position2 - position1)*2  #this is a rough scaling factor for eof diff between human and baxter, hand ar pointed left
-        print position
+        print "position: {}".format(position)
+
 
         #human base orientation needs to be rotated about y axis -pi/2
-        # make rbt for quat 1
-        human_base_rbt = eqf.create_rbt(quaternion1, -np.pi/2, np.array([0,0,0]))
-        print "quaternion 1: \n{}".format(human_base_rbt)
+        #rotate_y = transformations.quaternion_about_axis(np.pi/2, [0,1,0])
+        #quaternion1 = transformations.quaternion_multiply(quaternion1, rotate_y)
 
-        #make rbt for hand
-        human_left_eof_rbt = eqf.create_rbt(quaternion1, 1, np.array([0,0,0]))
-        print "quaternion 2: \n{}".format(human_left_eof_rbt)
-
-        #make rbt for hand
-        rel_orientation = eqf.compute_gab(human_base_rbt, human_left_eof_rbt)*0.25
-        print "quaternion 3: \n{}".format(eqf.find_omega_theta(rel_orientation[:3,:3])[0])
-
+        #quaternion1 = transformations.slerp_quaternion(quaternion1, quaternion2, 1)
+        print "quaterion 1: \n", quaternion1
 
 
 
@@ -60,7 +59,7 @@ def human_ar_talker(ar_markers):
         pos = Float32MultiArray()
         pos.data = position
         quat = Float32MultiArray()
-        quat.data = eqf.find_omega_theta(rel_orientation[:3,:3])[0] #quaternion1
+        quat.data = quaternion1
         pub.publish(pos)
         pub2.publish(quat)
         rate.sleep()
