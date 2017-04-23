@@ -1,8 +1,7 @@
 Final project starter notes
 Robert Spark, Vidush Mukund, Gabriel Al-Harbi
 
-starting up baxter
-make a symbolic link in the root of your ros workspace:
+Make a symbolic link in the root of your ros workspace:
 	
 	ln -s /scratch/shared/baxter_ws/baxter.sh ~/final_project/
 
@@ -29,19 +28,21 @@ start joint trajectory action server in order to correctly publish joint velocit
 	
 	rosrun baxter_interface joint_trajectory_action_server.py
 
-If using MoveIt to do motion planning, run the baxter moveit config launch script in a new shell:
-
-	roslaunch baxter_moveit_config move_group.launch
-
-
 Afterwards, run the following commands in this order while inside baxter:
 
 	roslaunch freenect_launch freenect.launch
 
 	roslaunch ar_track_alvar pr2_indiv.launch
 	
-	rosrun final_proj ar_track.py
+	rosrun final_proj ar_track.py 3 0
 
 The first command connects to the Kinect camera.
 The second command connects AR tracking to the camera
 The third command publishes AR tag positions and rotations based on custom translations.
+
+Lastly, to move joints on Baxter from ar tag positions on human, run the following command in baxter shell:
+
+	rosrun final_proj joint_velocity.py
+
+Baxter should now be mimicing your motions. Be ready to hit Control-C to terminate if needed.
+

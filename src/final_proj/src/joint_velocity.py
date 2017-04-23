@@ -121,7 +121,9 @@ def command_joint_velocities():
     # get baxter pykdl jacobians
     while not rospy.is_shutdown():
         # eulerr = transformations.euler_from_quaternion([0,0,1,0])
-        r = np.hstack((np.array([curr_pos]),np.array([eulerr])))
+        ror = transformations.euler_from_quaternion(curr_rot)
+        euler_human_hand = [ror[0], ror[1], ror[2]]
+        r = np.hstack((np.array([curr_pos]),np.array([euler_human_hand])))
         left_angles = left.joint_angles()
         try:
             jacobian = kin_left.jacobian()
@@ -132,15 +134,22 @@ def command_joint_velocities():
         # get transform for left gripper on baxter
         while not rospy.is_shutdown():
             try:
+
                 t = listener.getLatestCommonTime('/base', '/left_gripper')
                 posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
+
+                #listener.waitForTransform('/left_gripper', '/camera_link', rospy.Time.now(), rospy.Duration(4.0))
+                #t = listener.getLatestCommonTime('/left_gripper', '/camera_link')
+                #posl, quatl = listener.lookupTransform('/left_gripper', '/camera_link', t)
                 # posl[0] = -1*posl[0]
                 print posl
                 # eulerl = transformations.euler_from_quaternion(quatl)
                 euler_left_hand = [0, 0, 0] 
-                #lor = curr_rot
+                lor = transformations.euler_from_quaternion(quatl)
+                print "quaternion of baxter hand virtual {}".format(quatl)
+
                 #lor = transformations.euler_from_quaternion(transformations.quaternion_slerp(curr_rot, quatl, 1))
-                #euler_left_hand = [lor[0], lor[1], lor[2]]
+                euler_left_hand = [lor[0], lor[1], lor[2]]
                 #print "rot: {}".format(euler_left_hand)
                 left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  
                 #print "baxter left eof: {}".format(left_baxter_eof)
