@@ -32,7 +32,7 @@ def ar_tracker(listener, from_frame, to_frame):
 
 
 
-        return np.array([pos[0],pos[1],pos[2]]), quat
+        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0], quat[1], quat[2], quat[3]])
 
     except Exception as e:
         return None, None
@@ -42,38 +42,30 @@ def human_ar_talker(ar_markers):
     human_base_frame = ar_markers['human_base']
     human_left_eof_frame = ar_markers['human_left_eof']
 
-    pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=100)
-    pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=100)
+    pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=10)
+    pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=10)
 
     rate = rospy.Rate(10.0) # 10hz
 
     # set once as translation of virtual camera frame with respect to baxter's base
-    chest_pos = None
 
     while not rospy.is_shutdown():
 
 
         position1, _ = ar_tracker(listener, 'camera_link', human_base_frame)
 
-
         # want to make virtual frame a fixed translation (chest position seen by kinect) in baxter base frame
         #if chest_pos != None:
         #    br.sendTransform((chest_pos[0], chest_pos[1], chest_pos[2]), (0,0,0,1), rospy.Time.now(), "camera_link", "base")
 
-        position2, quaternion2 = ar_tracker(listener, 'base', 'ar_marker_0')
+        position2, quaternion2 = ar_tracker(listener, 'ar_marker_0', 'base')
 
-        position = None
         if position1 == None or position2 == None or quaternion2 == None:
             continue
 
         position = (position2 - position1)*2  #this is a rough scaling factor for eof diff between human and baxter, hand ar pointed left
         print "position: {}".format(position)
 
-        # rot = transformations.quaternion_about_axis(-np.pi/2, [0,1,0])
-
-
-        # quaternion2 = transformations.quaternion_multiply(rot, quaternion2)
-        #quaternion1 = transformations.slerp_quaternion(quaternion1, quaternion2, 1)
         print "quaterion 2: \n", quaternion2
 
         #publish position and quaternion velocity values

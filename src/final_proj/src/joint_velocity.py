@@ -105,11 +105,13 @@ def command_joint_velocities():
     listener = tf.TransformListener()
     right_angles = right.joint_angles()
 
+    left_or = []
+
 
     # get baxter pykdl jacobians
     while not rospy.is_shutdown():
         # eulerr = transformations.euler_from_quaternion([0,0,1,0])
-        curr_rot = np.array([0,0,0,0])
+        #curr_rot = np.array([0,0,0,0])
         ror = transformations.euler_from_quaternion(curr_rot)
         euler_human_hand = [ror[0], ror[1], ror[2]]
         r = np.hstack((np.array([curr_pos]),np.array([euler_human_hand])))
@@ -125,22 +127,16 @@ def command_joint_velocities():
         while not rospy.is_shutdown():
             try:
 
-                #t = listener.getLatestCommonTime('/left', '/base')
-                posl, quatl = listener.lookupTransform('/left_gripper', '/base', rospy.Time(0))
+                t = listener.getLatestCommonTime('/base', '/left_gripper')
+                posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
 
                 # posl[0] = -1*posl[0]
-                # eulerl = transformations.euler_from_quaternion(quatl)
-                #quatl = np.array([0,0,0,0])
-                print curr_rot
-                lor = transformations.euler_from_quaternion(curr_rot)
-                # lor = transformations.euler_from_quaternion(quatl)
-
-                #lor = transformations.euler_from_quaternion(transformations.quaternion_slerp(curr_rot, quatl, 1))
-                euler_left_hand = [lor[0], lor[1], lor[2]]
+                eulerl = transformations.euler_from_quaternion(quatl)
+                euler_left_hand = transformations.euler_from_quaternion(quatl)
+                #posl = curr_pos
+                #euler_left_hand = lor
                 #print "rot: {}".format(euler_left_hand)
-                left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  
-                # left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  
-                #print "baxter left eof: {}".format(left_baxter_eof)
+                left_baxter_eof = np.hstack((np.array([posl]), np.array([eulerl])))  
                 break
             except Exception as e:
                 print "ERROR: {}".format(e)
@@ -148,9 +144,12 @@ def command_joint_velocities():
 
 
         delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian, left_baxter_eof.T)  #take difference between positions
-
+        delta_theta*=0.3
+        print delta_theta
         joint_v = to_dictionary(delta_theta)
-        left.set_joint_velocities(joint_v)
+        #left.set_joint_velocities(joint_v)
+
+        time.sleep(0.1)
         
 
         ### old code here for reference (from merge) ###
