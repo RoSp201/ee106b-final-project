@@ -15,7 +15,7 @@ listener = None
 
 prev_pos = np.array([0,0,0])
 curr_pos = np.array([0,0,0])
-curr_rot = np.array([0,1,0,0])
+curr_rot = np.array([0,0,0,0])
 
 def to_array(args):
     array = []
@@ -124,22 +124,20 @@ def command_joint_velocities():
         while not rospy.is_shutdown():
             try:
 
-                t = listener.getLatestCommonTime('/base', '/left_gripper')
-                posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
+                t = listener.getLatestCommonTime('/left', '/base')
+                posl, quatl = listener.lookupTransform('/left_gripper', '/base', t)
 
-                #listener.waitForTransform('/left_gripper', '/camera_link', rospy.Time.now(), rospy.Duration(4.0))
-                #t = listener.getLatestCommonTime('/left_gripper', '/camera_link')
-                #posl, quatl = listener.lookupTransform('/left_gripper', '/camera_link', t)
                 # posl[0] = -1*posl[0]
                 # eulerl = transformations.euler_from_quaternion(quatl)
-                quatl = np.array([0,0,0,0])
-                lor = transformations.euler_from_quaternion(quatl)
+                #quatl = np.array([0,0,0,0])
+                lor = transformations.euler_from_quaternion(curr_rot)
                 # lor = transformations.euler_from_quaternion(quatl)
 
                 #lor = transformations.euler_from_quaternion(transformations.quaternion_slerp(curr_rot, quatl, 1))
                 euler_left_hand = [lor[0], lor[1], lor[2]]
                 #print "rot: {}".format(euler_left_hand)
-                left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  
+                left_baxter_eof = np.hstack((np.array([curr_pos]), np.array([euler_left_hand])))  
+                # left_baxter_eof = np.hstack((np.array([posl]), np.array([euler_left_hand])))  
                 #print "baxter left eof: {}".format(left_baxter_eof)
                 break
             except Exception as e:
