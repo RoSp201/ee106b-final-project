@@ -35,7 +35,6 @@ def callback(data):
     global curr_pos
     curr_pos = np.array(data.data)   #data received from sub in curr pos 
     curr_pos[0] = -1*curr_pos[0]
-
     curr_pos[1] = -1*curr_pos[1]
 
 def callback1(data):
@@ -106,21 +105,11 @@ def command_joint_velocities():
     listener = tf.TransformListener()
     right_angles = right.joint_angles()
 
-    while not rospy.is_shutdown():
-        try:
-            t = listener.getLatestCommonTime('/base','/right_gripper')
-            posr,quatr = listener.lookupTransform('/base','/right_gripper', t)
-            eulerr = [0,0,0]
-            r = np.hstack((np.array([posr]),np.array([eulerr])))
-            break
-        except:
-            continue
-    r = np.hstack((-1*np.array([curr_pos]),np.array([eulerr])))
-
 
     # get baxter pykdl jacobians
     while not rospy.is_shutdown():
         # eulerr = transformations.euler_from_quaternion([0,0,1,0])
+        curr_rot = np.array([0,0,0,0])
         ror = transformations.euler_from_quaternion(curr_rot)
         euler_human_hand = [ror[0], ror[1], ror[2]]
         r = np.hstack((np.array([curr_pos]),np.array([euler_human_hand])))
@@ -142,11 +131,10 @@ def command_joint_velocities():
                 #t = listener.getLatestCommonTime('/left_gripper', '/camera_link')
                 #posl, quatl = listener.lookupTransform('/left_gripper', '/camera_link', t)
                 # posl[0] = -1*posl[0]
-                print posl
                 # eulerl = transformations.euler_from_quaternion(quatl)
-                euler_left_hand = [0, 0, 0] 
+                quatl = np.array([0,0,0,0])
                 lor = transformations.euler_from_quaternion(quatl)
-                print "quaternion of baxter hand virtual {}".format(quatl)
+                # lor = transformations.euler_from_quaternion(quatl)
 
                 #lor = transformations.euler_from_quaternion(transformations.quaternion_slerp(curr_rot, quatl, 1))
                 euler_left_hand = [lor[0], lor[1], lor[2]]
@@ -160,7 +148,9 @@ def command_joint_velocities():
 
 
         delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian, left_baxter_eof.T)  #take difference between positions
-        left.set_joint_velocities(to_dictionary(delta_theta))
+
+        joint_v = to_dictionary(delta_theta)
+        left.set_joint_velocities(joint_v)
         
 
         ### old code here for reference (from merge) ###

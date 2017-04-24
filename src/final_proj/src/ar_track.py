@@ -13,24 +13,26 @@ import geometry_msgs.msg
 listener = None
 br = None
 
+
+
 def ar_tracker(listener, from_frame, to_frame):
     try:
         listener.waitForTransform(from_frame, to_frame, rospy.Time(0),rospy.Duration(1.0))
         pos, quat = listener.lookupTransform(from_frame, to_frame, rospy.Time(0))
         #print "quat {}".format(quat)
 
-        rot = transformations.quaternion_about_axis(-np.pi/2, [0,1,0])
-
-        quat = transformations.quaternion_multiply(rot, quat)
-
-
-
-        # rot = transformations.quaternion_about_axis(np.pi/2, [0,1,0])
+        # rot = transformations.quaternion_about_axis(np.pi, [0,0,1])
 
         # quat = transformations.quaternion_multiply(rot, quat)
 
 
-        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0],quat[1],quat[2],quat[3]])
+        rot = transformations.quaternion_about_axis(np.pi, [0,1,0])
+
+        quat = transformations.quaternion_multiply(rot, [quat[3],quat[0],quat[1],quat[2]])
+
+
+
+        return np.array([pos[0],pos[1],pos[2]]),quat
 
     except Exception as e:
         return None, None
