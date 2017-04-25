@@ -852,6 +852,19 @@ _run_tests_ar_track_alvar_roslaunch-check/fast:
 .PHONY : _run_tests_ar_track_alvar_roslaunch-check/fast
 
 #=============================================================================
+# Target rules for targets named _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+
+# Build rule for target.
+_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+.PHONY : _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+
+# fast build rule for target.
+_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch/fast:
+	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build
+.PHONY : _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch/fast
+
+#=============================================================================
 # Target rules for targets named _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch
 
 # Build rule for target.
@@ -1372,6 +1385,19 @@ run_tests_ar_track_alvar_roslaunch-check/fast:
 .PHONY : run_tests_ar_track_alvar_roslaunch-check/fast
 
 #=============================================================================
+# Target rules for targets named run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+
+# Build rule for target.
+run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+.PHONY : run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+
+# fast build rule for target.
+run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch/fast:
+	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build
+.PHONY : run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch/fast
+
+#=============================================================================
 # Target rules for targets named run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch
 
 # Build rule for target.
@@ -1711,6 +1737,7 @@ help:
 	@echo "... baxter_maintenance_msgs_generate_messages_py"
 	@echo "... _run_tests_ar_track_alvar"
 	@echo "... _run_tests_ar_track_alvar_roslaunch-check"
+	@echo "... _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch"
 	@echo "... _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch"
 	@echo "... _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch"
 	@echo "... _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch"
@@ -1751,6 +1778,7 @@ help:
 	@echo "... pcl_ros_gencfg"
 	@echo "... run_tests_ar_track_alvar"
 	@echo "... run_tests_ar_track_alvar_roslaunch-check"
+	@echo "... run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch"
 	@echo "... run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch"
 	@echo "... run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch"
 	@echo "... run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch"

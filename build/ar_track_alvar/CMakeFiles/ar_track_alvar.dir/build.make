@@ -877,11 +877,13 @@ ar_track_alvar_EXTERNAL_OBJECTS =
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/libnodeletlib.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/libbondcpp.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libuuid.so
-/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/libclass_loader.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/libPocoFoundation.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libdl.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/libroslib.so
+/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/librospack.so
+/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
+/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libtinyxml.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/librosbag.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/librosbag_storage.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
@@ -979,6 +981,8 @@ ar_track_alvar_EXTERNAL_OBJECTS =
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/libPocoFoundation.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libdl.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/libroslib.so
+/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/librospack.so
+/home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libpython2.7.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/librosbag.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /opt/ros/indigo/lib/librosbag_storage.so
 /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/devel/lib/libar_track_alvar.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so

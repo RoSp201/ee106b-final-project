@@ -1801,6 +1801,7 @@ ar_track_alvar/all: ar_track_alvar/CMakeFiles/trainMarkerBundle.dir/all
 # Convenience name for "clean" pass in the directory.
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/clean
+ar_track_alvar/clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch.dir/clean
@@ -1841,6 +1842,7 @@ ar_track_alvar/clean: ar_track_alvar/CMakeFiles/pcl_msgs_generate_messages_py.di
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/pcl_ros_gencfg.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/clean
+ar_track_alvar/clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch.dir/clean
 ar_track_alvar/clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch.dir/clean
@@ -1904,15 +1906,16 @@ clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar.dir/clean
 # Target rules for target ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir
 
 # All Build rule for target.
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-full.test.dir/all
 ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_arg_config-basic.test.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_train.launch.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv_no_kinect.launch.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-basic.test.dir/all
 ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_arg_config-full.test.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_train.launch.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-basic.test.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv_no_kinect.launch.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_arg_config-basic.test.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-full.test.dir/all
 	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/depend
 	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 
@@ -1937,6 +1940,38 @@ ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/clean:
 
 # clean rule for target.
 clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir
+
+# All Build rule for target.
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all: CMakeFiles/tests.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all: ar_track_alvar/CMakeFiles/clean_test_results_ar_track_alvar.dir/all
+	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/depend
+	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 
+	@echo "Built target _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch"
+.PHONY : ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all
+
+# Build rule for subdir invocation for target.
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 0
+.PHONY : ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/rule
+
+# Convenience name for target.
+_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/rule
+.PHONY : _run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+
+# clean rule for target.
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean:
+	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
+.PHONY : ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
+
+# clean rule for target.
+clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -2231,9 +2266,9 @@ clean: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_roslaunch-check__home
 # Target rules for target ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir
 
 # All Build rule for target.
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest_test_marker_arg_config-full.test.dir/all
-ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest_test_marker_param_config-full.test.dir/all
 ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest_test_marker_arg_config-basic.test.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest_test_marker_param_config-full.test.dir/all
+ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest_test_marker_arg_config-full.test.dir/all
 ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest_test_marker_param_config-basic.test.dir/all
 	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/depend
 	$(MAKE) -f ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/build.make ar_track_alvar/CMakeFiles/_run_tests_ar_track_alvar_rostest.dir/build
@@ -2750,8 +2785,8 @@ clean: ar_track_alvar/CMakeFiles/createMarker.dir/clean
 # Target rules for target ar_track_alvar/CMakeFiles/findMarkerBundles.dir
 
 # All Build rule for target.
-ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all: ar_track_alvar/CMakeFiles/ar_track_alvar.dir/all
 ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all: ar_track_alvar/CMakeFiles/medianFilter.dir/all
+ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all: ar_track_alvar/CMakeFiles/ar_track_alvar.dir/all
 ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all: ar_track_alvar/CMakeFiles/kinect_filtering.dir/all
 	$(MAKE) -f ar_track_alvar/CMakeFiles/findMarkerBundles.dir/build.make ar_track_alvar/CMakeFiles/findMarkerBundles.dir/depend
 	$(MAKE) -f ar_track_alvar/CMakeFiles/findMarkerBundles.dir/build.make ar_track_alvar/CMakeFiles/findMarkerBundles.dir/build
@@ -3180,8 +3215,8 @@ clean: ar_track_alvar/CMakeFiles/pcl_ros_gencfg.dir/clean
 # Target rules for target ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir
 
 # All Build rule for target.
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all
 	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/depend
 	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 
@@ -3213,14 +3248,15 @@ clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar.dir/clean
 
 # All Build rule for target.
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-full.test.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv_no_kinect.launch.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-basic.test.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch.dir/all
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_arg_config-basic.test.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_train.launch.dir/all
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_arg_config-full.test.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle_no_kinect.launch.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_bundle.launch.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv.launch.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_indiv_no_kinect.launch.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_pr2_train.launch.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_test_marker_param_config-basic.test.dir/all
 	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/depend
 	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 
@@ -3245,6 +3281,37 @@ ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/clean:
 
 # clean rule for target.
 clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir
+
+# All Build rule for target.
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all:
+	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/depend
+	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 
+	@echo "Built target run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch"
+.PHONY : ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all
+
+# Build rule for subdir invocation for target.
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 0
+.PHONY : ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/rule
+
+# Convenience name for target.
+run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/rule
+.PHONY : run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch
+
+# clean rule for target.
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean:
+	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
+.PHONY : ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
+
+# clean rule for target.
+clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_cc_ee106b_sp17_class_ee106b-aah_final_final_project_src_ar_track_alvar_launch_lifecam.launch.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -3530,10 +3597,10 @@ clean: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_
 # Target rules for target ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir
 
 # All Build rule for target.
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest_test_marker_param_config-basic.test.dir/all
-ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest_test_marker_param_config-full.test.dir/all
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest_test_marker_arg_config-full.test.dir/all
 ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest_test_marker_arg_config-basic.test.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest_test_marker_param_config-full.test.dir/all
+ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/all: ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest_test_marker_param_config-basic.test.dir/all
 	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/depend
 	$(MAKE) -f ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/build.make ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_rostest.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cc/ee106b/sp17/class/ee106b-aah/final/final_project/build/CMakeFiles 
