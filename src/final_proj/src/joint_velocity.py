@@ -12,12 +12,7 @@ import ar_track
 from core import transformations
 
 listener = None
-NUM_SAMPLES = 20
-
-
-prev_pos = np.array([0,0,0])
 curr_pos = np.array([0,0,0])
-curr_rot = np.array([0,0,0,0])
 
 def to_array(args):
     array = []
@@ -42,7 +37,6 @@ def callback(data):
 def callback1(data):
     global curr_rot
     curr_rot = data.data
-
 
 
 class PIDController(object):
@@ -86,24 +80,8 @@ class PIDController(object):
 
         return (self.kp*error) + (self.ki*self.prev_integration) + self.kd*self.derivative + self.bias
 
-def filter(positions):
-    """
-    Applies a median filter to positions received from the subscriber before commanding a move by baxter
-    """
-    print "original: {}\n".format(positions)
-    positions.sort(key=lambda l:l[0])
-    print "sort by x: {}\n".format(positions)
-    positions.sort(key=lambda l:l[1])
-    print "sort by y: {}\n".format(positions)
-    positions.sort(key=lambda l:l[2])
-    print "sort by z: {}\n".format(positions)
-
-    # take median of these values
-    print "median: {}\n".format(positions[len(positions)/2])
-
 
 def command_joint_velocities():
-
     rospy.init_node('baxter_joint_kinematics_node', anonymous=True)
     rospy.Subscriber("kinect_pos_track", Float32MultiArray, callback)
     rospy.Subscriber("kinect_quat_track", Float32MultiArray, callback1)
@@ -120,10 +98,8 @@ def command_joint_velocities():
     listener = tf.TransformListener()
     right_angles = right.joint_angles()
 
-
     while not rospy.is_shutdown():
-        ror = transformations.euler_from_quaternion(curr_rot)
-        euler_human_hand = [ror[0], ror[1], ror[2]]
+        euler_human_hand = [0,0,0]
         r = np.hstack((np.array([curr_pos]),np.array([euler_human_hand])))
         left_angles = left.joint_angles()
         try:
@@ -136,12 +112,8 @@ def command_joint_velocities():
             try:
                 t = listener.getLatestCommonTime('/base', '/left_gripper')
                 posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
-                # posl[0] = -1*posl[0]
-                eulerl = transformations.euler_from_quaternion(quatl)
-                prev_x[i] = eulerl[0]
-                prev_y[i] = eulerl[1]
-                prev_z[i] = eulerl[2]
-                left_baxter_eof = np.hstack((np.array([posl]), np.array([eulerl]))) 
+                eulerl = [0,0,0]
+                left_baxter_eof = np.hstack((np.array([posl]), np.array([eulerl])))
                 break
             except Exception as e:
                 print "ERROR: {}".format(e)
@@ -150,46 +122,7 @@ def command_joint_velocities():
         delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian, left_baxter_eof.T)  #take difference between joint angles
         joint_v = to_dictionary(delta_theta)
         left.set_joint_velocities(joint_v)
-
-        ### old code here for reference (from merge) ###
-
-        # right_eof_v = right.endpoint_velocity()
-        # right_eof_velocity = np.array([[right_eof_v['linear'][0], right_eof_v['linear'][1], right_eof_v['linear'][2], right_eof_v['angular'][0], right_eof_v['angular'][1], right_eof_v['angular'][2]]]).T
-        # new_left_vel = pinv_jacobian.dot(right_eof_velocity)
-
-        # print "right eof velocity: \n{}".format(right_eof_velocity)
-        # #print "left inverse jacobian: {}".format(pinv_jacobian)
-        # #print "left joint velocities: {}".format(new_left_vel)
-        # desired_joint_vels = to_dictionary(new_left_vel)
-        # print "new left joint velocities: \n{}".format(desired_joint_vels)
-
-
-        # actual_joint_vels = left.joint_velocities()
-        # output_joint_velocities = {}
-
-        # alpha = 0.6
-        # joint_errors = {}
-        # # peform pid control on the error produced by each joint on left arm
-        # for key in actual_joint_vels.keys():
-        #     error = desired_joint_vels[key] - actual_joint_vels[key]
-        #     joint_errors[key] = error
-        #     output_joint_velocities[key] = (desired_joint_vels[key]*alpha + pid.controller_output(error)*(1-alpha)) / 0.5
-
-        # # command the left arm to move with the determined joint velocities 
-        # left.set_joint_velocities(output_joint_velocities)
-
-        # max_joint_name, max_joint_value = -1000, -1000
-        # for joint_name in joint_errors.keys():
-        #     if joint_errors[joint_name] > max_joint_value:
-        #         max_joint_value = joint_errors[joint_name]
-        #         max_joint_name = joint_name
-
-        # # note: may want to consider adding some smoothing parameter if motions become very unstable
-        # print "max joint velocity error: {} at joint: {}".format(max_joint_value, max_joint_name)
-        # rospy.sleep(0.1)
-
+        
 if __name__ == '__main__':
-    prev_pos = np.array([0,0,0])
     curr_pos = np.array([0,0,0])
-    curr_rot = np.array([0,0,0])
     command_joint_velocities()

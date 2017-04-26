@@ -10,7 +10,8 @@ from core import transformations
 import geometry_msgs.msg
 
 listener = None
-NUM = 20
+# number of sample points want to take median of
+NUM = 10  
 
 def ar_tracker(listener, from_frame, to_frame):
     try:
@@ -24,17 +25,12 @@ def filter(positions):
     """
     Applies a median filter to positions received from the subscriber before commanding a move by baxter
     """
-    print "original: {}\n".format(positions)
     positions.sort(key=lambda l:l[0])
-    print "sort by x: {}\n".format(positions)
     positions.sort(key=lambda l:l[1])
-    print "sort by y: {}\n".format(positions)
     positions.sort(key=lambda l:l[2])
-    print "sort by z: {}\n".format(positions)
 
     # take median of these values
     median = positions[len(positions) / 2]
-    print "median: {}\n".format(median)
     return median
 
 
@@ -45,14 +41,12 @@ def human_ar_talker(ar_markers):
 
     pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=30)
     pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=30)
+    rate = rospy.Rate(100.0) 
 
-    rate = rospy.Rate(10.0) # 10hz
-
-    # setup
     i = 0
     position_buff = [None]*NUM
-
     filter_position = None
+
     while not rospy.is_shutdown():
 
         position1, _ = ar_tracker(listener, '/camera_link', human_base_frame)
@@ -61,8 +55,12 @@ def human_ar_talker(ar_markers):
         if position1 == None or position2 == None or quaternion2 == None:
             continue
 
-        position = (position2 - position1)*2
-
+        # scaled each dimension proportional to human full extension
+        position = (position2 - position1)
+        position[0] *= 1.3
+        position[1] *= 1.6
+        position[2] *= 1.45
+ 
         if i == NUM:
             filter_position = filter(position_buff)
             pos = Float32MultiArray()
@@ -76,7 +74,6 @@ def human_ar_talker(ar_markers):
         else:
             position_buff[i] = position
             i += 1
-
         rate.sleep()
 
 
