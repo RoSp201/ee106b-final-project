@@ -105,8 +105,10 @@ def command_joint_velocities():
     listener = tf.TransformListener()
     right_angles = right.joint_angles()
 
-    left_or = []
-
+    num = 10
+    prev_x = [0]*num
+    prev_y = [0]*num
+    prev_z = [0]*num
 
     # get baxter pykdl jacobians
     while not rospy.is_shutdown():
@@ -114,6 +116,7 @@ def command_joint_velocities():
         #curr_rot = np.array([0,0,0,0])
         ror = transformations.euler_from_quaternion(curr_rot)
         euler_human_hand = [ror[0], ror[1], ror[2]]
+        curr_pos = [0,0,0]
         r = np.hstack((np.array([curr_pos]),np.array([euler_human_hand])))
         left_angles = left.joint_angles()
         try:
@@ -123,35 +126,43 @@ def command_joint_velocities():
             continue
 
         # get transform for left gripper on baxter
-
+        eulerl = None
         while not rospy.is_shutdown():
-            try:
+            i = 0
+            while i < num and not rospy.is_shutdown():
+                try:
+                    t = listener.getLatestCommonTime('/base', '/left_gripper')
+                    posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
+                    # posl[0] = -1*posl[0]
+                    eulerl = transformations.euler_from_quaternion(quatl)
+                    prev_x[i] = eulerl[0]
+                    prev_y[i] = eulerl[1]
+                    prev_z[i] = eulerl[2]
+                    i += 1
+                    break
+                except Exception as e:
+                    print "ERROR: {}".format(e)
+                    continue
 
-                t = listener.getLatestCommonTime('/base', '/left_gripper')
-                posl, quatl = listener.lookupTransform('/base', '/left_gripper', t)
-
-                # posl[0] = -1*posl[0]
-                eulerl = transformations.euler_from_quaternion(quatl)
-                euler_left_hand = transformations.euler_from_quaternion(quatl)
-                #posl = curr_pos
-                #euler_left_hand = lor
-                #print "rot: {}".format(euler_left_hand)
-                left_baxter_eof = np.hstack((np.array([posl]), np.array([eulerl])))  
-                break
-            except Exception as e:
-                print "ERROR: {}".format(e)
-                continue
+            rotl = (sum(prev_x)/num, sum(prev_y)/num, sum(prev_z)/num)
+            posl = (0,0,0)
+            left_baxter_eof = np.hstack((np.array([posl]), np.array([eulerl]))) 
+            break
 
 
-        delta_theta = np.dot(pinv_jacobian,r.T) - np.dot(pinv_jacobian, left_baxter_eof.T)  #take difference between positions
-        delta_theta*=0.3
-        print delta_theta
+        #delta_before = r-left_baxter_eof
+        #delta_theta = np.dot(pinv_jacobian, delta_before.T)
+        print "shape: ",pinv_jacobian[4:].shape
+        delta_theta = np.dot(pinv_jacobian[4:],r.T) - np.dot(pinv_jacobian[4:], left_baxter_eof.T)  #take difference between joint angles
+        print "\n", delta_theta
+
+        delta_theta = np.array([[0, 0, 0, 0, delta_theta[0][0], delta_theta[1][0], delta_theta[2][0]]]).T
+        print "\n", delta_theta
+
         joint_v = to_dictionary(delta_theta)
-        #left.set_joint_velocities(joint_v)
+        left.set_joint_velocities(joint_v)
 
-        time.sleep(0.1)
-        
-
+        rospy.sleep(0.1)
         ### old code here for reference (from merge) ###
 
         # right_eof_v = right.endpoint_velocity()
