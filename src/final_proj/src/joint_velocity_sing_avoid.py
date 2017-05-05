@@ -17,7 +17,7 @@ curr_pos = np.array([0,0,0])
 
 def to_array(args):
     array = []
-    jointss = args.keys()
+    jointss = ['_s0','_s1','_e0','_e1','_w0','_w1','_w2']
     for i,joint in enumerate(jointss):
         array.append(args[joint])
     return np.array([array]).T

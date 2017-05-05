@@ -1,79 +1,95 @@
 #!/usr/bin/env python
-"""
-Starter script for EE106B grasp planning lab
-Author: Jeff Mahler
-"""
-import warnings
-
 import sys
 import rospy
 import numpy as np
 import tf
 import time
-from core import RigidTransform, Point, transformations as t
-from meshpy import ObjFile
-from visualization import Visualizer3D as vis
-
-import moveit_commander
-from moveit_msgs.msg import OrientationConstraint, Constraints
-from geometry_msgs.msg import PoseStamped
-from baxter_interface import gripper as baxter_gripper
-import baxter_interface
 from std_msgs.msg import Float32MultiArray
+from core import transformations
+import geometry_msgs.msg
 
-def ar_tracker(listener,from_frame,to_frame):
+listener = None
+# number of sample points want to take median of
+NUM = 10  
+
+def ar_tracker(listener, from_frame, to_frame):
     try:
-        listener.waitForTransform(from_frame, to_frame, rospy.Time(0),rospy.Duration(4.0))
+        listener.waitForTransform(from_frame, to_frame, rospy.Time(0),rospy.Duration(1.0))
         pos, quat = listener.lookupTransform(from_frame, to_frame, rospy.Time(0))
-        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0],quat[1],quat[2]])
+        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0], quat[1], quat[2], quat[3]])
     except Exception as e:
-        # print e
         return None, None
 
-def talker():
+def filter(positions):
+    """
+    Applies a median filter to positions received from the subscriber before commanding a move by baxter
+    """
+    positions.sort(key=lambda l:l[0])
+    positions.sort(key=lambda l:l[1])
+    positions.sort(key=lambda l:l[2])
 
-    rospy.init_node('talker', anonymous=True)
-    ar_tags = ['ar_marker_3', 'ar_marker_0'] #chest, left_hand
+    # take median of these values
+    median = positions[len(positions) / 2]
+    return median
 
-    #Start tf node
-    listener = tf.TransformListener()
-    from_frame = ar_tags[0]
-    to_frame = ar_tags[1]
 
-    pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=10)
+def human_ar_talker(ar_markers):
 
-    pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=10)
+    human_base_frame = ar_markers['human_base']
+    human_left_eof_frame = ar_markers['human_left_eof']
 
-    #rate = rospy.Rate(10) # 10hz
-    rate = rospy.Rate(10)
+    pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=30)
+    pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=30)
+    rate = rospy.Rate(100.0) 
+
+    i = 0
+    position_buff = [None]*NUM
+    filter_position = None
 
     while not rospy.is_shutdown():
-        position1, quaternion = ar_tracker(listener,'camera_link',from_frame)
-        position2, quaternion = ar_tracker(listener,'camera_link',to_frame)
 
-        # position, quaternion = ar_tracker(listener,from_frame,to_frame)
+        position1, _ = ar_tracker(listener, '/camera_link', human_base_frame)
+        position2, quaternion2 = ar_tracker(listener, '/camera_link', human_left_eof_frame)
 
-        if position1 == None or quaternion == None or position2 == None:
+        if position1 == None or position2 == None or quaternion2 == None:
             continue
 
-        position = (position2 - position1)*2
-        print position
-        #publish position and quaternion velocity values
-        pos = Float32MultiArray()
-        pos.data = position
-        quat = Float32MultiArray()
-        quat.data = quaternion
-        pub.publish(pos)
-        pub2.publish(quat)
+        # scaled each dimension proportional to human full extension
+        position = (position2 - position1)
+        position[0] *= 1.3
+        position[1] *= 1.6
+        position[2] *= 1.45
+ 
+        if i == NUM:
+            filter_position = filter(position_buff)
+            pos = Float32MultiArray()
+            pos.data = filter_position
+            quat = Float32MultiArray()
+            quat.data = quaternion2
+            pub.publish(pos)
+            pub2.publish(quat)
+            i = 0
+
+        else:
+            position_buff[i] = position
+            i += 1
         rate.sleep()
 
 
-
 if __name__ == '__main__':
-    #Start a node
+
+    #Start a nodes
+    rospy.init_node('human_ar_talker', anonymous=True)
+    listener = tf.TransformListener()
+
+    if len(sys.argv) < 2:
+        print 'Use: rosrun final_proj ar_track.py [ chest AR tag number ] [ left hand AR tag number ]'
+        sys.exit()
+
+    ar_markers = {}
+    ar_markers['human_base'] = 'ar_marker_' + sys.argv[1]
+    ar_markers['human_left_eof'] = 'ar_marker_' + sys.argv[2]
     try:
-        talker()
+        human_ar_talker(ar_markers)
     except rospy.ROSInterruptException:
         pass
-    
-
