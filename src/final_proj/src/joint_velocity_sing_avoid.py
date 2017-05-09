@@ -15,15 +15,16 @@ from core import transformations
 listener = None
 curr_pos = np.array([0,0,0])
 
-def to_array(args):
+def to_array(args, limb='right'):
     array = []
     jointss = ['_s0','_s1','_e0','_e1','_w0','_w1','_w2']
+    jointss = [limb+joint for joint in jointss]  # allows for use of either right or left limb
+
     for i,joint in enumerate(jointss):
         array.append(args[joint])
     return np.array([array]).T
 
 def to_dictionary(args, limb='left'):
-    # jointss = ['left_s0','left_s1','left_e0','left_e1','left_w0','left_w1','left_w2']
     jointss = ['_s0','_s1','_e0','_e1','_w0','_w1','_w2']
     jointss = [limb+joint for joint in jointss]  # allows for use of either right or left limb
 
@@ -96,7 +97,7 @@ class PIDController(object):
 def command_joint_velocities():
     # angles for desired position
     desired_angle_dict = {'right_s0': 0.05062136600021865, 'right_s1': -1.0028399400800891, 'right_w0': -0.6665146523362123, 'right_w1': 1.0147282911862012, 'right_w2': 0.5276893910325823, 'right_e0': 1.20992734644462, 'right_e1': 1.9493060862053895}
-    desired_angles_array = to_array(des_angle_dict)
+    desired_angles_array = to_array(desired_angle_dict)
 
     rospy.init_node('baxter_joint_kinematics_node', anonymous=True)
     rospy.Subscriber("kinect_pos_track", Float32MultiArray, callback)

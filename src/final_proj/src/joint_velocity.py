@@ -14,6 +14,7 @@ from core import transformations
 
 listener = None
 curr_pos = np.array([0,0,0])
+curr_rot = np.array([0,0,0])
 
 def to_array(args, limb='right'):
     array = []
@@ -25,12 +26,14 @@ def to_array(args, limb='right'):
     return np.array([array]).T
 
 def to_dictionary(args, limb='right'):
+    args = np.array(args).ravel()
     jointss = ['_s0','_s1','_e0','_e1','_w0','_w1','_w2']
     jointss = [limb+joint for joint in jointss]  # allows for use of either right or left limb
 
     ret_dict = {}
     for i,joint in enumerate(jointss):
         ret_dict[joint] = args[i]
+
     return ret_dict
 
 def nullspace(A, atol=1e-3,rtol=0):
@@ -49,7 +52,8 @@ def callback(data):
 
 def callback1(data):
     global curr_rot
-    curr_rot = data.data
+    curr_quat = data.data
+    curr_rot = transformations.euler_from_quaternion(curr_quat)
 
 
 class PIDController(object):
@@ -96,7 +100,8 @@ class PIDController(object):
 
 def command_joint_velocities():
     # angles for desired position
-    desired_angle_dict = {'right_s0': 0.05062136600021865, 'right_s1': -1.0028399400800891, 'right_w0': -0.6665146523362123, 'right_w1': 1.0147282911862012, 'right_w2': 0.5276893910325823, 'right_e0': 1.20992734644462, 'right_e1': 1.9493060862053895}
+    # desired_angle_dict = {'right_s0': 0.05062136600021865, 'right_s1': -1.0028399400800891, 'right_w0': -0.6665146523362123, 'right_w1': 1.0147282911862012, 'right_w2': 0.5276893910325823, 'right_e0': 1.20992734644462, 'right_e1': 1.9493060862053895}
+    desired_angle_dict = {'right_s0': 0.6507913492603867, 'right_s1': -0.6243301806693634, 'right_w0': -0.6711165946998685, 'right_w1': 1.4599662148699426, 'right_w2': -0.08360195293975504, 'right_e0': 0.8444564237309202, 'right_e1': 0.7205874751091731}
     desired_angles_array = to_array(desired_angle_dict)
 
     rospy.init_node('baxter_joint_kinematics_node', anonymous=True)
@@ -120,7 +125,7 @@ def command_joint_velocities():
         r = np.hstack((np.array([curr_pos]),np.array([euler_human_hand])))
         #left_angles = left.joint_angles()
         right_angles = right.joint_angles() #change for update right
-        print(right_angles)
+        # print(right_angles)
         try:
             #jacobian = kin_left.jacobian()
             jacobian = kin_right.jacobian()
@@ -129,6 +134,7 @@ def command_joint_velocities():
             null_jacob = np.array(nullspace(jacobian))
 
             # diff between current and desired angles (gradient)
+            # print(right_angles)
             grad_angles = -to_array(right_angles)+desired_angles_array
             x = np.array(np.dot(null_jacob,null_jacob.T))
             join_angle_adjustments = np.dot(x,grad_angles)
@@ -162,8 +168,11 @@ def command_joint_velocities():
         # add joint_angle_adjustments to delta_theta
         delta_theta = delta_theta + join_angle_adjustments
         joint_v = to_dictionary(delta_theta, 'right')
-        #print joint_v
         #left.set_joint_velocities(joint_v)
+    
+        joint_v['right_w2'] = .08*curr_rot[2]
+        print .08*curr_rot[2]
+        joint_v['right_w1'] *= -1
         right.set_joint_velocities(joint_v)
         
 if __name__ == '__main__':

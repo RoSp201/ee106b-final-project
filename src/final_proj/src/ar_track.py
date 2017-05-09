@@ -16,8 +16,10 @@ def ar_tracker(listener, from_frame, to_frame):
     try:
         listener.waitForTransform(from_frame, to_frame, rospy.Time(0),rospy.Duration(1.0))
         pos, quat = listener.lookupTransform(from_frame, to_frame, rospy.Time(0))
-        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0], quat[1], quat[2], quat[3]])
+
+        return np.array([pos[0],pos[1],pos[2]]), np.array([quat.w, quat.x, quat.y, quat.z])
     except Exception as e:
+        print "Error in AR_tracker: {}".format(e)
         return None, None
 
 def filter(positions):
@@ -52,11 +54,12 @@ def human_ar_talker(ar_markers):
         position2, quaternion2 = ar_tracker(listener, '/camera_link', human_left_eof_frame)
 
         if position1 == None or position2 == None or quaternion2 == None:
+            print "print error"
             continue
 
         # scaled each dimension proportional to human full extension
         position = (position2 - position1)
-        position[0] *= 1.3
+        position[0] *= 1.4
         position[1] *= 1.6
         position[2] *= 1.45
  
@@ -68,6 +71,7 @@ def human_ar_talker(ar_markers):
             quat.data = quaternion2
             pub.publish(pos)
             pub2.publish(quat)
+            print "position: ", filter_position
             i = 0
 
         else:
