@@ -3,6 +3,7 @@
 import rospy
 import sys
 import baxter_interface
+from baxter_interface import Limb
 import baxter_pykdl as kdl
 import numpy as np
 from numpy.linalg import svd
@@ -14,7 +15,10 @@ from core import transformations
 
 listener = None
 curr_pos = np.array([0,0,0])
+prev_pos = np.array([0,0,0])
 curr_rot = np.array([0,0,0])
+curr_human_vels = np.array([0,0,0])
+curr_robot_vels = np.array([0,0,0])
 
 def to_array(args, limb='right'):
     array = []
@@ -46,6 +50,8 @@ def nullspace(A, atol=1e-3,rtol=0):
 
 def callback(data):
     global curr_pos
+    global prev_pos
+    prev_pos = curr_pos
     curr_pos = np.array(data.data)   #data received from sub in curr pos 
     curr_pos[0] = -1*curr_pos[0]
     curr_pos[1] = -1*curr_pos[1]
@@ -99,6 +105,8 @@ class PIDController(object):
 
 
 def command_joint_velocities():
+    global curr_human_vels
+    global curr_robot_vels
     # angles for desired position
     # desired_angle_dict = {'right_s0': 0.05062136600021865, 'right_s1': -1.0028399400800891, 'right_w0': -0.6665146523362123, 'right_w1': 1.0147282911862012, 'right_w2': 0.5276893910325823, 'right_e0': 1.20992734644462, 'right_e1': 1.9493060862053895}
     desired_angle_dict = {'right_s0': 0.6507913492603867, 'right_s1': -0.6243301806693634, 'right_w0': -0.6711165946998685, 'right_w1': 1.4599662148699426, 'right_w2': -0.08360195293975504, 'right_e0': 0.8444564237309202, 'right_e1': 0.7205874751091731}
@@ -119,6 +127,8 @@ def command_joint_velocities():
 
     listener = tf.TransformListener()
     right_angles = right.joint_angles()
+
+    right_arm = Limb('right')
 
     while not rospy.is_shutdown():
         euler_human_hand = [0,0,0]
@@ -174,7 +184,15 @@ def command_joint_velocities():
         print .08*curr_rot[2]
         joint_v['right_w1'] *= -1
         right.set_joint_velocities(joint_v)
-        
+
+        curr_robot_vel = np.array(right_arm.endpoint_velocity()['linear'])
+        curr_robot_vels = np.append(curr_robot_vels,curr_robot_vel)
+        curr_human_vels = np.append(curr_human_vels,(curr_pos - prev_pos)/(0.1))
+        np.save("human_vels",curr_human_vels)
+        np.save("robot_vels",curr_robot_vels)
+
+
+
 if __name__ == '__main__':
     curr_pos = np.array([0,0,0])
     command_joint_velocities()

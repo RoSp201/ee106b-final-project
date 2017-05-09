@@ -17,7 +17,7 @@ def ar_tracker(listener, from_frame, to_frame):
         listener.waitForTransform(from_frame, to_frame, rospy.Time(0),rospy.Duration(1.0))
         pos, quat = listener.lookupTransform(from_frame, to_frame, rospy.Time(0))
 
-        return np.array([pos[0],pos[1],pos[2]]), np.array([quat.w, quat.x, quat.y, quat.z])
+        return np.array([pos[0],pos[1],pos[2]]), np.array([quat[0], quat[1], quat[2], quat[3]])
     except Exception as e:
         print "Error in AR_tracker: {}".format(e)
         return None, None
@@ -42,7 +42,7 @@ def human_ar_talker(ar_markers):
 
     pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=30)
     pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=30)
-    rate = rospy.Rate(100.0) 
+    rate = rospy.Rate(10.0) 
 
     i = 0
     position_buff = [None]*NUM
@@ -56,6 +56,7 @@ def human_ar_talker(ar_markers):
         if position1 == None or position2 == None or quaternion2 == None:
             print "print error"
             continue
+        position1[2] -= .4
 
         # scaled each dimension proportional to human full extension
         position = (position2 - position1)
