@@ -42,7 +42,7 @@ def human_ar_talker(ar_markers):
 
     pub = rospy.Publisher('kinect_pos_track', Float32MultiArray, queue_size=30)
     pub2 = rospy.Publisher('kinect_quat_track', Float32MultiArray, queue_size=30)
-    rate = rospy.Rate(10.0) 
+    rate = rospy.Rate(25.0) 
 
     i = 0
     position_buff = [None]*NUM
@@ -56,13 +56,13 @@ def human_ar_talker(ar_markers):
         if position1 == None or position2 == None or quaternion2 == None:
             print "print error"
             continue
-        position1[2] -= .4
+        position1[2] += .1
 
         # scaled each dimension proportional to human full extension
         position = (position2 - position1)
-        position[0] *= 1.4
-        position[1] *= 1.6
-        position[2] *= 1.45
+        position[0] *= 1.7
+        position[1] *= 1.45
+        position[2] *= 1.6
  
         if i == NUM:
             filter_position = filter(position_buff)

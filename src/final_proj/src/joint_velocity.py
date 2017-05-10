@@ -187,7 +187,7 @@ def command_joint_velocities():
 
         curr_robot_vel = np.array(right_arm.endpoint_velocity()['linear'])
         curr_robot_vels = np.append(curr_robot_vels,curr_robot_vel)
-        curr_human_vels = np.append(curr_human_vels,(curr_pos - prev_pos)/(0.1))
+        curr_human_vels = np.append(curr_human_vels,(curr_pos - prev_pos)/(1/25))
         np.save("human_vels",curr_human_vels)
         np.save("robot_vels",curr_robot_vels)
 
